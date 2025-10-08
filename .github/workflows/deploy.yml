@@ -19,10 +19,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: "18"
           cache: "npm"
@@ -36,8 +36,29 @@ jobs:
           NEXT_PUBLIC_SITE_NAME: Brian Lockhart Portfolio
         run: npm run build
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+      - name: Clean build output
+        run: |
+          # Remove any potential problematic files
+          find ./out -type l -delete || true
+          find ./out -name "*.DS_Store" -delete || true
+          find ./out -name ".git*" -delete || true
+
+      - name: Debug build output
+        run: |
+          echo "Checking build output structure:"
+          ls -la ./out/
+          echo "Checking for symlinks:"
+          find ./out -type l || echo "No symlinks found"
+          echo "Checking total size:"
+          du -sh ./out
+          echo "Checking file count:"
+          find ./out -type f | wc -l
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v2
         with:
           path: ./out
 
@@ -50,4 +71,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v2
