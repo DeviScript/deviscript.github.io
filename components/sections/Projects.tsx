@@ -35,13 +35,13 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "OuterWave App",
+      title: "OuterWave Digital",
       category: "Full Stack Web Application",
       description:
         "A comprehensive digital platform offering innovative solutions and services. Built with modern web technologies to provide a seamless user experience across all devices.",
       longDescription:
         "OuterWave App represents the flagship product of my entrepreneurial journey. This full-stack web application demonstrates advanced React patterns, secure backend APIs, and responsive design principles. The platform includes user authentication, real-time features, and a scalable architecture.",
-      image: "/images/outerwave-app.jpg",
+      image: null, // "/images/outerwave-app.jpg",
       liveUrl: "https://www.outerwaveapp.com/",
       githubUrl: null, // Private repository
       technologies: [
@@ -72,7 +72,7 @@ const Projects = () => {
         "A logistics management platform designed to streamline operations and improve efficiency for businesses. Features comprehensive tracking, analytics, and management tools.",
       longDescription:
         "OuterWave Logistics addresses real-world business challenges in the logistics industry. This platform provides comprehensive tools for tracking, management, and analytics, helping businesses optimize their operations and improve customer satisfaction.",
-      image: "/images/outerwave-logistics.jpg",
+      image: null, // "/images/outerwave-logistics.jpg",
       liveUrl: "https://outerwavelogistics.com/",
       githubUrl: null, // Private repository
       technologies: [
@@ -102,7 +102,7 @@ const Projects = () => {
         "A complete e-commerce solution built during my bootcamp training, featuring product management, shopping cart, user authentication, and payment processing.",
       longDescription:
         "This project showcases my mastery of the MERN stack through a comprehensive e-commerce platform. It includes all essential e-commerce features while demonstrating best practices in full-stack development, state management, and security.",
-      image: "/images/ecommerce-demo.jpg",
+      image: null, // "/images/ecommerce-demo.jpg",
       liveUrl: null,
       githubUrl: "https://github.com/DeviScript/mern-ecommerce",
       technologies: [
@@ -133,7 +133,7 @@ const Projects = () => {
         "A collaborative task management application with real-time updates, team collaboration features, and project organization capabilities.",
       longDescription:
         "Built to demonstrate proficiency in real-time applications and collaborative features. This task management app includes advanced features like real-time synchronization, team workspaces, and comprehensive project management tools.",
-      image: "/images/task-manager.jpg",
+      image: null, // "/images/task-manager.jpg",
       liveUrl: null,
       githubUrl: "https://github.com/DeviScript/task-manager",
       technologies: [
