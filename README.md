@@ -2,51 +2,34 @@
 
 **Full Stack Developer & Entrepreneur**
 
-[![Live Portfolio](https://img.shields.io/badge/Portfolio-deviscript.github.io-2563eb?style=flat-square)](https://deviscript.github.io)
-[![Next.js](https://img.shields.io/badge/Next.js-14-000000?style=flat-square&logo=next.js)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178c6?style=flat-square&logo=typescript)](https://typescriptlang.org/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-deviscript.github.io-2563eb?style=flat-square)](https://deviscript.github.io)
 
-Professional portfolio website showcasing expertise in full-stack development, modern web technologies, and entrepreneurial ventures.
+## About Me
 
-## Overview
+I'm a passionate Full Stack Developer and Entrepreneur with expertise in modern web technologies and a proven track record of building innovative solutions. Currently developing OuterWave, a comprehensive platform for logistics and business management.
 
-This repository contains the source code for my professional portfolio website, featuring a responsive design, modern UI/UX principles, and optimized performance. The site demonstrates proficiency in contemporary web development practices and serves as a comprehensive showcase of my technical capabilities and professional experience.
+**Visit my portfolio:** [deviscript.github.io](https://deviscript.github.io)
 
-**Live Website:** [deviscript.github.io](https://deviscript.github.io)
+## Professional Background
 
-## Technical Implementation
+- **Full Stack Development:** Specialized in JavaScript/TypeScript ecosystem with React, Node.js, and MongoDB
+- **Entrepreneurial Ventures:** Founder and developer of OuterWave applications and logistics solutions
+- **Education:** Graduate of UNC Chapel Hill's intensive 24-week MERN stack coding bootcamp
+- **Technical Focus:** Modern web development, responsive design, and scalable application architecture
 
-- **Framework:** Next.js 14 with App Router architecture
-- **Language:** TypeScript for type-safe development
-- **Styling:** Tailwind CSS with custom design system
-- **Animations:** Framer Motion for enhanced user experience
-- **Theme Management:** Dynamic dark/light mode switching
-- **Performance:** Optimized for Core Web Vitals and accessibility standards
+## Core Technologies
 
-## Getting Started
+- **Frontend:** React, Next.js, TypeScript, Tailwind CSS
+- **Backend:** Node.js, Express.js, MongoDB, RESTful APIs
+- **Tools & Platforms:** Git, GitHub, Vercel, modern development workflows
 
-### Prerequisites
-- Node.js 18.0 or higher
-- npm or yarn package manager
+## Featured Projects
 
-### Installation
-```bash
-# Clone the repository
-git clone https://github.com/DeviScript/deviscript.github.io.git
+- **OuterWave App** - Comprehensive business management platform
+- **OuterWave Logistics** - Specialized logistics and operations solutions
+- **Personal Portfolio** - This responsive, modern portfolio website
 
-# Navigate to project directory
-cd deviscript.github.io
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-```
-
-The application will be available at `http://localhost:3000`
-
-## Professional Contact
+## Contact
 
 - **Email:** [DeviScript@gmail.com](mailto:DeviScript@gmail.com)
 - **LinkedIn:** [brianlockhart-deviscript](https://www.linkedin.com/in/brianlockhart-deviscript/)
@@ -55,4 +38,4 @@ The application will be available at `http://localhost:3000`
 
 ---
 
-*© 2024 Brian Lockhart. Professional portfolio and technical showcase.*
+*Passionate about creating innovative web solutions and driving business growth through technology.*
