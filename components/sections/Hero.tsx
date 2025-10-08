@@ -3,18 +3,24 @@
 import { motion } from "framer-motion";
 import { ChevronDown, Download, ExternalLink } from "lucide-react";
 import { useEffect, useState } from "react";
+import {
+  fadeInUp,
+  scaleIn,
+  staggerContainer,
+  staggerItem,
+  floatingElement,
+} from "@/lib/utils/animations";
+import { useScrollNavigation } from "@/lib/hooks/useScrollNavigation";
+import { TECH_STACK } from "@/lib/constants/data";
+import { NAVIGATION_SECTIONS } from "@/lib/constants/navigation";
 
 const Hero = () => {
   const [mounted, setMounted] = useState(false);
+  const { scrollToSection } = useScrollNavigation(NAVIGATION_SECTIONS);
 
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  const scrollToNextSection = () => {
-    const element = document.querySelector("#about");
-    element?.scrollIntoView({ behavior: "smooth" });
-  };
 
   if (!mounted) return null;
 
@@ -26,57 +32,32 @@ const Hero = () => {
       {/* Background Animation */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-grid-slate-100 dark:bg-grid-slate-700/25 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]" />
+
         {/* Floating elements */}
         <motion.div
           className="absolute top-20 left-10 w-20 h-20 bg-primary-500/20 rounded-full blur-xl"
-          animate={{
-            y: [0, -20, 0],
-            x: [0, 10, 0],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          {...floatingElement(0, 20, 6)}
         />
         <motion.div
           className="absolute top-40 right-20 w-32 h-32 bg-purple-500/20 rounded-full blur-xl"
-          animate={{
-            y: [0, 30, 0],
-            x: [0, -15, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          {...floatingElement(0, 30, 8)}
         />
         <motion.div
           className="absolute bottom-20 left-1/4 w-24 h-24 bg-green-500/20 rounded-full blur-xl"
-          animate={{
-            y: [0, -25, 0],
-            x: [0, 20, 0],
-          }}
-          transition={{
-            duration: 7,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          {...floatingElement(0, 25, 7)}
         />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
           className="space-y-8"
         >
           {/* Greeting */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            variants={scaleIn}
             className="inline-flex items-center px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 rounded-full text-sm font-medium"
           >
             👋 Hello, I&apos;m Brian Lockhart
@@ -84,9 +65,7 @@ const Hero = () => {
 
           {/* Main heading */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            variants={fadeInUp}
             className="text-4xl sm:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white"
           >
             Full Stack Developer
@@ -98,9 +77,7 @@ const Hero = () => {
 
           {/* Subtitle */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            variants={fadeInUp}
             className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed"
           >
             Passionate about creating innovative digital solutions with the MERN
@@ -110,16 +87,11 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
+            variants={fadeInUp}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <button
-              onClick={() => {
-                const element = document.querySelector("#projects");
-                element?.scrollIntoView({ behavior: "smooth" });
-              }}
+              onClick={() => scrollToSection("projects")}
               className="btn-primary group"
             >
               View My Work
@@ -129,10 +101,7 @@ const Hero = () => {
               />
             </button>
             <button
-              onClick={() => {
-                const element = document.querySelector("#contact");
-                element?.scrollIntoView({ behavior: "smooth" });
-              }}
+              onClick={() => scrollToSection("contact")}
               className="btn-outline group"
             >
               Download Resume
@@ -145,26 +114,13 @@ const Hero = () => {
 
           {/* Tech Stack Preview */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
+            variants={staggerContainer}
             className="flex flex-wrap justify-center gap-4 pt-8"
           >
-            {[
-              "JavaScript",
-              "TypeScript",
-              "React",
-              "Node.js",
-              "MongoDB",
-              "Express.js",
-              "Next.js",
-              "Tailwind CSS",
-            ].map((tech, index) => (
+            {TECH_STACK.map((tech, index) => (
               <motion.span
                 key={tech}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: 1 + index * 0.1 }}
+                variants={staggerItem}
                 className="px-3 py-1 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow"
               >
                 {tech}
@@ -178,7 +134,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.5 }}
-          onClick={scrollToNextSection}
+          onClick={() => scrollToSection("about")}
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
         >
           <motion.div
