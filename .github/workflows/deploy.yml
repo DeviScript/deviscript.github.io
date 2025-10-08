@@ -1,61 +1,49 @@
-name: Deploy to GitHub Pages
+# GitHub Pages deployment disabled - now using Vercel for deployment
+# This workflow has been commented out since Vercel handles automatic deployment
+# from the main branch. If you need to re-enable GitHub Pages deployment,
+# uncomment the configuration below.
 
-on:
-  push:
-    branches: [main]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "18"
-          cache: "npm"
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build
-        env:
-          NEXT_PUBLIC_SITE_URL: https://deviscript.github.io
-          NEXT_PUBLIC_SITE_NAME: Brian Lockhart Portfolio
-        run: npm run build
-
-      - name: Create .nojekyll
-        run: touch ./out/.nojekyll
-
-      - name: Debug and clean build output
-        run: |
-          echo "Original build output:"
-          ls -la ./out/
-          echo "Removing problematic files..."
-          find ./out -type l -delete || true
-          find ./out -name "*.DS_Store" -delete || true
-          find ./out -name ".git*" -delete || true
-          echo "After cleanup:"
-          ls -la ./out/
-          echo "Total size:"
-          du -sh ./out
-          echo "File count:"
-          find ./out -type f | wc -l
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
+# name: Deploy to GitHub Pages
+#
+# on:
+#   push:
+#     branches: [ main ]
+#   pull_request:
+#     branches: [ main ]
+#
+# permissions:
+#   contents: read
+#   pages: write
+#   id-token: write
+#
+# concurrency:
+#   group: "pages"
+#   cancel-in-progress: false
+#
+# jobs:
+#   deploy:
+#     environment:
+#       name: github-pages
+#       url: ${{ steps.deployment.outputs.page_url }}
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v4
+#
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: '18'
+#           cache: 'npm'
+#
+#       - name: Install dependencies
+#         run: npm ci
+#
+#       - name: Build
+#         run: npm run build
+#
+#       - name: Deploy to GitHub Pages
+#         uses: peaceiris/actions-gh-pages@v3
+#         with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+#           publish_dir: ./out

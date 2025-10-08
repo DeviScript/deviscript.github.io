@@ -6,9 +6,7 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint",
-        "deploy": "git add . && git commit -m \"Quick deploy: $(date)\" && git push origin main",
-        "quick": "npm run build && npm run deploy"
+        "lint": "next lint"
     },
     "dependencies": {
         "@mdx-js/loader": "^2.3.0",
