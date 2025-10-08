@@ -1,11 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    output: 'export',
+    trailingSlash: true,
+    basePath: '',
     experimental: {
         mdxRs: true,
     },
     images: {
         domains: ['images.ctfassets.net', 'via.placeholder.com'],
-        unoptimized: false,
+        unoptimized: true, // Required for static export
         remotePatterns: [
             {
                 protocol: 'https',
