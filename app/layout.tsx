@@ -13,6 +13,7 @@ validateEnvVars();
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://deviscript.github.io"),
   title: {
     default: "Brian Lockhart - Full Stack Developer & Entrepreneur",
     template: "%s | Brian Lockhart",
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://your-domain.com",
+    url: "https://deviscript.github.io",
     title: "Brian Lockhart - Full Stack Developer & Entrepreneur",
     description:
       "Professional portfolio of Brian Lockhart - Full Stack Developer and entrepreneur.",
