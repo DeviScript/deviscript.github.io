@@ -1,36 +1,166 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Brian Lockhart - Personal Portfolio Website
 
-## Getting Started
+[![Live Site](https://img.shields.io/badge/Live%20Site-deviscript.github.io-blue)](https://deviscript.github.io)
+[![GitHub Pages](https://img.shields.io/badge/Deployed%20on-GitHub%20Pages-green)](https://pages.github.com/)
+[![Next.js](https://img.shields.io/badge/Built%20with-Next.js-000000)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-First, run the development server:
+A modern, responsive personal website built with Next.js, TypeScript, and Tailwind CSS, showcasing my skills as a Full Stack Developer and Entrepreneur.
 
-```bash
-npm run dev
+> **Live Site**: [deviscript.github.io](https://deviscript.github.io)
+
+## 🚀 Features
+
+- **Modern Design**: Clean, minimalist aesthetic with dark mode support
+- **Responsive**: Optimized for all devices (mobile, tablet, desktop)
+- **Performance**: Built with Next.js App Router for optimal performance
+- **Animations**: Smooth transitions and micro-interactions using Framer Motion
+- **SEO Optimized**: Meta tags, Open Graph, structured data
+- **Accessibility**: WCAG compliant with keyboard navigation
+- **Type Safe**: Built with TypeScript for reliability
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Theme**: next-themes for dark mode
+- **Icons**: Lucide React
+- **Analytics**: Vercel Analytics
+
+## 📱 Sections
+
+- **Hero**: Eye-catching introduction with animated elements
+- **About**: Personal story and professional background
+- **Skills**: Interactive showcase of technical skills and proficiencies
+- **Experience**: Professional timeline with UNC Chapel Hill bootcamp
+- **Projects**: Featured work including OuterWave ventures
+- **Education**: Academic background and certifications
+- **Contact**: Form and contact information
+
+## 🏃‍♂️ Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+   \`\`\`bash
+   git clone https://github.com/DeviScript/personal-site.git
+   cd personal-site
+   \`\`\`
+
+2. Install dependencies
+   \`\`\`bash
+   npm install
+
 # or
+
+yarn install
+\`\`\`
+
+3. Start the development server
+   \`\`\`bash
+   npm run dev
+
+# or
+
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+\`\`\`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📦 Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To create a production build:
 
-## Learn More
+\`\`\`bash
+npm run build
+npm start
+\`\`\`
 
-To learn more about Next.js, take a look at the following resources:
+## 🌐 Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is optimized for deployment on [Vercel](https://vercel.com/):
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Connect your GitHub repository to Vercel
+2. Configure environment variables if needed
+3. Deploy automatically on push to main branch
 
-## Deploy on Vercel
+## 📁 Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+\`\`\`
+personal-site/
+├── app/ # Next.js App Router
+│ ├── globals.css # Global styles
+│ ├── layout.tsx # Root layout
+│ ├── page.tsx # Home page
+│ ├── sitemap.ts # SEO sitemap
+│ └── robots.ts # SEO robots.txt
+├── components/ # React components
+│ ├── layout/ # Layout components
+│ ├── providers/ # Context providers
+│ └── sections/ # Page sections
+├── public/ # Static assets
+└── styles/ # Additional styles
+\`\`\`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🎨 Customization
+
+### Colors
+
+Update the color scheme in \`tailwind.config.js\`:
+\`\`\`javascript
+colors: {
+primary: {
+// Your brand colors
+}
+}
+\`\`\`
+
+### Content
+
+Update personal information in the component files:
+
+- \`components/sections/Hero.tsx\` - Name, title, tagline
+- \`components/sections/About.tsx\` - Bio and personal story
+- \`components/sections/Experience.tsx\` - Professional experience
+- \`components/sections/Projects.tsx\` - Portfolio projects
+
+### SEO
+
+Update metadata in \`app/layout.tsx\`:
+\`\`\`typescript
+export const metadata: Metadata = {
+title: 'Your Name - Your Title',
+description: 'Your description',
+// ... other metadata
+}
+\`\`\`
+
+## 🤝 Contact
+
+- **Email**: DeviScript@gmail.com
+- **GitHub**: [github.com/DeviScript](https://github.com/DeviScript)
+- **LinkedIn**: [linkedin.com/in/brianlockhart-deviscript](https://www.linkedin.com/in/brianlockhart-deviscript/)
+- **Website**: [outerwaveapp.com](https://www.outerwaveapp.com/)
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- Built during my journey through the UNC Chapel Hill Coding Bootcamp
+- Inspired by modern web design principles and best practices
+- Thank you to the open source community for the amazing tools and libraries
+
+---
+
+**⭐ Star this repository if you found it helpful!**
+# deviscript.github.io
