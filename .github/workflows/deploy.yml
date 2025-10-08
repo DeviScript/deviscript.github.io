@@ -1,49 +1,23 @@
-# GitHub Pages deployment disabled - now using Vercel for deployment
-# This workflow has been commented out since Vercel handles automatic deployment
-# from the main branch. If you need to re-enable GitHub Pages deployment,
-# uncomment the configuration below.
+name: "GitHub Pages Deployment - Disabled"
 
-# name: Deploy to GitHub Pages
-#
-# on:
-#   push:
-#     branches: [ main ]
-#   pull_request:
-#     branches: [ main ]
-#
-# permissions:
-#   contents: read
-#   pages: write
-#   id-token: write
-#
-# concurrency:
-#   group: "pages"
-#   cancel-in-progress: false
-#
-# jobs:
-#   deploy:
-#     environment:
-#       name: github-pages
-#       url: ${{ steps.deployment.outputs.page_url }}
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v4
-#
-#       - name: Setup Node.js
-#         uses: actions/setup-node@v4
-#         with:
-#           node-version: '18'
-#           cache: 'npm'
-#
-#       - name: Install dependencies
-#         run: npm ci
-#
-#       - name: Build
-#         run: npm run build
-#
-#       - name: Deploy to GitHub Pages
-#         uses: peaceiris/actions-gh-pages@v3
-#         with:
-#           github_token: ${{ secrets.GITHUB_TOKEN }}
-#           publish_dir: ./out
+on:
+  workflow_dispatch:
+    inputs:
+      enable:
+        description: "This workflow is disabled - using Vercel deployment"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+
+jobs:
+  deployment-disabled:
+    runs-on: ubuntu-latest
+    if: false
+    steps:
+      - name: Deployment Notice
+        run: |
+          echo "GitHub Pages deployment is disabled for this project"
+          echo "The site is deployed via Vercel at: https://deviscript-github-io.vercel.app"
+          echo "Automatic deployment happens on every push to main branch"
