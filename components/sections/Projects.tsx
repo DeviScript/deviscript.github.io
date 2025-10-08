@@ -41,7 +41,7 @@ const Projects = () => {
         "A comprehensive digital platform offering innovative solutions and services. Built with modern web technologies to provide a seamless user experience across all devices.",
       longDescription:
         "OuterWave App represents the flagship product of my entrepreneurial journey. This full-stack web application demonstrates advanced React patterns, secure backend APIs, and responsive design principles. The platform includes user authentication, real-time features, and a scalable architecture.",
-      image: null, // "/images/outerwave-app.jpg",
+      image: "/images/projects/outerwave-digital.webp",
       liveUrl: "https://www.outerwaveapp.com/",
       githubUrl: null, // Private repository
       technologies: [
@@ -72,7 +72,7 @@ const Projects = () => {
         "A logistics management platform designed to streamline operations and improve efficiency for businesses. Features comprehensive tracking, analytics, and management tools.",
       longDescription:
         "OuterWave Logistics addresses real-world business challenges in the logistics industry. This platform provides comprehensive tools for tracking, management, and analytics, helping businesses optimize their operations and improve customer satisfaction.",
-      image: null, // "/images/outerwave-logistics.jpg",
+      image: "/images/projects/outerwave-logistics.webp",
       liveUrl: "https://outerwavelogistics.com/",
       githubUrl: null, // Private repository
       technologies: [
@@ -120,7 +120,7 @@ const Projects = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto"
         >
           {projects.map((project, index) => (
             <motion.div
@@ -130,13 +130,14 @@ const Projects = () => {
               className="card overflow-hidden group"
             >
               {/* Project Image */}
-              <div className="relative h-64 bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-800/20 overflow-hidden">
+              <div className="relative h-48 bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-800/20 overflow-hidden">
                 {project.image ? (
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    priority={index === 0}
                   />
                 ) : (
                   <div className="flex items-center justify-center h-full">
@@ -187,48 +188,48 @@ const Projects = () => {
               </div>
 
               {/* Project Content */}
-              <div className="p-6">
+              <div className="p-5">
                 {/* Header */}
-                <div className="flex items-start justify-between mb-3">
+                <div className="flex items-start justify-between mb-2">
                   <div>
                     <div className="flex items-center gap-2 mb-1">
                       <Tag
-                        size={14}
+                        size={12}
                         className="text-primary-600 dark:text-primary-400"
                       />
-                      <span className="text-sm text-primary-600 dark:text-primary-400 font-medium">
+                      <span className="text-xs text-primary-600 dark:text-primary-400 font-medium">
                         {project.category}
                       </span>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white">
                       {project.title}
                     </h3>
                   </div>
-                  <div className="flex items-center gap-1 text-sm text-muted">
-                    <Calendar size={14} />
+                  <div className="flex items-center gap-1 text-xs text-muted">
+                    <Calendar size={12} />
                     {project.year}
                   </div>
                 </div>
 
                 {/* Description */}
-                <p className="text-body mb-4 line-clamp-3">
+                <p className="text-sm text-body mb-3 line-clamp-2">
                   {project.description}
                 </p>
 
                 {/* Key Features */}
-                <div className="mb-4">
-                  <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">
+                <div className="mb-3">
+                  <h4 className="text-xs font-semibold text-gray-900 dark:text-white mb-1">
                     Key Features:
                   </h4>
-                  <ul className="space-y-1">
+                  <ul className="space-y-0.5">
                     {project.features
                       .slice(0, 3)
                       .map((feature, featureIndex) => (
                         <li
                           key={featureIndex}
-                          className="text-sm text-body flex items-start"
+                          className="text-xs text-body flex items-start"
                         >
-                          <span className="text-primary-600 dark:text-primary-400 mr-2 mt-1">
+                          <span className="text-primary-600 dark:text-primary-400 mr-2 mt-0.5">
                             •
                           </span>
                           {feature}
@@ -238,18 +239,18 @@ const Projects = () => {
                 </div>
 
                 {/* Technologies */}
-                <div className="mb-6">
-                  <div className="flex flex-wrap gap-2">
+                <div className="mb-4">
+                  <div className="flex flex-wrap gap-1.5">
                     {project.technologies.slice(0, 6).map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded text-xs font-medium"
+                        className="px-2 py-0.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded text-xs font-medium"
                       >
                         {tech}
                       </span>
                     ))}
                     {project.technologies.length > 6 && (
-                      <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded text-xs font-medium">
+                      <span className="px-2 py-0.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded text-xs font-medium">
                         +{project.technologies.length - 6} more
                       </span>
                     )}
@@ -257,13 +258,13 @@ const Projects = () => {
                 </div>
 
                 {/* Action buttons */}
-                <div className="flex gap-3">
+                <div className="flex gap-2">
                   {project.liveUrl && (
                     <a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 btn-primary text-center text-sm py-2"
+                      className="flex-1 btn-primary text-center text-xs py-2"
                     >
                       View Live
                     </a>
@@ -273,13 +274,13 @@ const Projects = () => {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 btn-outline text-center text-sm py-2"
+                      className="flex-1 btn-outline text-center text-xs py-2"
                     >
                       View Code
                     </a>
                   )}
                   {!project.liveUrl && !project.githubUrl && (
-                    <div className="flex-1 text-center text-sm py-2 text-muted">
+                    <div className="flex-1 text-center text-xs py-2 text-muted">
                       Private Repository
                     </div>
                   )}
