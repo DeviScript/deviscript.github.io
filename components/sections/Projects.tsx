@@ -95,66 +95,6 @@ const Projects = () => {
       status: "Live",
       year: "2023",
     },
-    {
-      title: "MERN Stack E-Commerce",
-      category: "Full Stack Application",
-      description:
-        "A complete e-commerce solution built during my bootcamp training, featuring product management, shopping cart, user authentication, and payment processing.",
-      longDescription:
-        "This project showcases my mastery of the MERN stack through a comprehensive e-commerce platform. It includes all essential e-commerce features while demonstrating best practices in full-stack development, state management, and security.",
-      image: null, // "/images/ecommerce-demo.jpg",
-      liveUrl: null,
-      githubUrl: "https://github.com/DeviScript/mern-ecommerce",
-      technologies: [
-        "MongoDB",
-        "Express.js",
-        "React",
-        "Node.js",
-        "Redux",
-        "JWT",
-        "Stripe API",
-        "Bootstrap",
-      ],
-      features: [
-        "Product catalog with search and filters",
-        "Shopping cart and wishlist",
-        "User authentication and profiles",
-        "Admin dashboard",
-        "Payment processing with Stripe",
-        "Order tracking system",
-      ],
-      status: "Demo",
-      year: "2023",
-    },
-    {
-      title: "Task Management App",
-      category: "Productivity Tool",
-      description:
-        "A collaborative task management application with real-time updates, team collaboration features, and project organization capabilities.",
-      longDescription:
-        "Built to demonstrate proficiency in real-time applications and collaborative features. This task management app includes advanced features like real-time synchronization, team workspaces, and comprehensive project management tools.",
-      image: null, // "/images/task-manager.jpg",
-      liveUrl: null,
-      githubUrl: "https://github.com/DeviScript/task-manager",
-      technologies: [
-        "React",
-        "Socket.io",
-        "Node.js",
-        "MongoDB",
-        "Express.js",
-        "Material-UI",
-      ],
-      features: [
-        "Real-time collaboration",
-        "Drag-and-drop task organization",
-        "Team workspaces",
-        "Project timelines",
-        "File attachments",
-        "Notification system",
-      ],
-      status: "Demo",
-      year: "2022",
-    },
   ];
 
   return (
@@ -347,27 +287,6 @@ const Projects = () => {
               </div>
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* View more projects */}
-        <motion.div
-          variants={itemVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="text-center mt-12"
-        >
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-            Want to see more of my work?
-          </p>
-          <a
-            href="https://github.com/DeviScript"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-outline inline-flex items-center"
-          >
-            <Github size={18} className="mr-2" />
-            View GitHub Profile
-          </a>
         </motion.div>
       </div>
     </section>

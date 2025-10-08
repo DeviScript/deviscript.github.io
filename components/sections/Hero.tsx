@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronDown, Download, ExternalLink } from "lucide-react";
+import { ChevronDown, FileText, ExternalLink } from "lucide-react";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import {
   fadeInUp,
   scaleIn,
@@ -100,31 +101,52 @@ const Hero = () => {
                 className="ml-2 group-hover:translate-x-1 transition-transform"
               />
             </button>
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="btn-outline group"
-            >
-              Download Resume
-              <Download
+            <Link href="/resume" className="btn-outline group">
+              View Full Resume
+              <FileText
                 size={18}
                 className="ml-2 group-hover:translate-y-1 transition-transform"
               />
-            </button>
+            </Link>
           </motion.div>
 
-          {/* Tech Stack Preview */}
+          {/* Tech Stack Badges */}
           <motion.div
-            variants={staggerContainer}
-            className="flex flex-wrap justify-center gap-4 pt-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.0 }}
+            className="flex flex-wrap justify-center gap-4"
           >
-            {TECH_STACK.map((tech, index) => (
-              <motion.span
-                key={tech}
-                variants={staggerItem}
-                className="px-3 py-1 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow"
+            {[
+              { name: "JavaScript", icon: "🟨" },
+              { name: "TypeScript", icon: "🔷" },
+              { name: "React", icon: "⚛️" },
+              { name: "Next.js", icon: "▲" },
+              { name: "Node.js", icon: "🟢" },
+              { name: "Express.js", icon: "🚂" },
+              { name: "MongoDB", icon: "🍃" },
+              { name: "SQL", icon: "🗄️" },
+              { name: "Git", icon: "�" },
+              { name: "HTML5", icon: "🌐" },
+              { name: "CSS3", icon: "🎨" },
+              { name: "Tailwind", icon: "💨" },
+              { name: "REST APIs", icon: "🔌" },
+              { name: "PWA", icon: "📱" },
+              { name: "Excel", icon: "📊" },
+              { name: "ORM", icon: "🔗" },
+            ].map((tech, index) => (
+              <motion.div
+                key={tech.name}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: 1.0 + index * 0.05 }}
+                className="flex flex-col items-center p-3 bg-gray-50 dark:bg-gray-800 rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105"
               >
-                {tech}
-              </motion.span>
+                <span className="text-2xl mb-1">{tech.icon}</span>
+                <span className="text-xs font-medium text-gray-900 dark:text-white">
+                  {tech.name}
+                </span>
+              </motion.div>
             ))}
           </motion.div>
         </motion.div>

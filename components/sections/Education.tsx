@@ -3,12 +3,13 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
 import {
   GraduationCap,
   Award,
   Calendar,
   MapPin,
-  ExternalLink,
+  FileText,
   BookOpen,
 } from "lucide-react";
 
@@ -39,65 +40,26 @@ const Education = () => {
     },
   };
 
-  const education = [
-    {
-      degree: "Full Stack Web Development Certificate",
-      institution: "UNC Chapel Hill Coding Bootcamp",
-      period: "2022 - 2023",
-      location: "Chapel Hill, NC",
-      type: "Intensive Bootcamp",
-      description:
-        "Completed a comprehensive 24-week full-stack web development program covering modern web technologies, best practices, and real-world application development.",
-      highlights: [
-        "Graduated from a highly selective and intensive coding program",
-        "Gained hands-on experience with industry-standard tools and technologies",
-        "Developed multiple full-stack applications using modern frameworks",
-        "Learned collaborative development practices and version control",
-      ],
-      skills: [
-        "Front-end Technologies: HTML5, CSS3, JavaScript, jQuery, Bootstrap, React.js",
-        "Back-end Technologies: Node.js, Express.js, Database Theory",
-        "Database Management: MySQL, NoSQL (MongoDB), Mongoose ODM, Sequelize ORM",
-        "Development Tools: Git, Command Line, Progressive Web Applications",
-        "Programming Concepts: Object-oriented Programming, Data Structures, Algorithms, Big O Notation",
-        "Project Management: Agile Project Delivery methodologies",
-      ],
-      certificationUrl: "#", // Add actual certificate URL if available
-      gpa: null,
-      honors: ["Certificate of Completion"],
-    },
-  ];
-
   const certifications = [
     {
       name: "Full Stack Web Development",
-      issuer: "UNC Chapel Hill",
-      date: "2023",
       icon: "🎓",
-      description:
-        "Comprehensive certification covering MERN stack development",
+      description: "MERN Stack Development",
     },
     {
-      name: "JavaScript Fundamentals",
-      issuer: "Bootcamp Curriculum",
-      date: "2022",
+      name: "JavaScript ES6+",
       icon: "🟨",
-      description: "Advanced JavaScript programming concepts and ES6+ features",
+      description: "Advanced Programming",
     },
     {
       name: "React Development",
-      issuer: "Bootcamp Curriculum",
-      date: "2023",
       icon: "⚛️",
-      description:
-        "Modern React development with hooks, context, and state management",
+      description: "Modern Frontend",
     },
     {
       name: "Node.js & Express",
-      issuer: "Bootcamp Curriculum",
-      date: "2023",
       icon: "🟢",
-      description: "Server-side development with Node.js and Express framework",
+      description: "Backend Development",
     },
   ];
 
@@ -112,140 +74,82 @@ const Education = () => {
           className="text-center mb-16"
         >
           <motion.h2 variants={itemVariants} className="section-title">
-            Education & Learning
+            Education & Certifications
           </motion.h2>
           <motion.p variants={itemVariants} className="section-subtitle">
-            My educational background and continuous learning journey in web
-            development
+            Formal education and specialized training in web development
           </motion.p>
         </motion.div>
 
-        {/* Main Education */}
+        {/* Main Education Card */}
         <motion.div
-          variants={containerVariants}
+          variants={itemVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="mb-16"
+          className="mb-12"
         >
-          {education.map((edu, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className="card p-8 relative overflow-hidden"
-            >
-              {/* Background decoration */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary-100 to-transparent dark:from-primary-900/20 dark:to-transparent rounded-bl-full" />
+          <div className="card p-8 lg:p-12 relative overflow-hidden">
+            {/* Background decoration */}
+            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary-100 to-transparent dark:from-primary-900/20 dark:to-transparent rounded-bl-full" />
 
-              <div className="relative z-10">
-                {/* Header */}
-                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
-                  <div className="flex items-start gap-4 mb-4 lg:mb-0">
-                    <div className="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
-                      <GraduationCap
-                        className="text-primary-600 dark:text-primary-400"
-                        size={24}
-                      />
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200">
-                          {edu.type}
-                        </span>
-                      </div>
-                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
-                        {edu.degree}
-                      </h3>
-                      <div className="flex items-center gap-1 text-primary-600 dark:text-primary-400 font-medium">
-                        <strong>{edu.institution}</strong>
-                        <ExternalLink size={16} className="ml-1" />
-                      </div>
-                    </div>
+            <div className="relative z-10">
+              <div className="flex flex-col lg:flex-row gap-8 items-center">
+                {/* Icon */}
+                <div className="flex-shrink-0">
+                  <div className="w-24 h-24 bg-gradient-to-br from-primary-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-xl">
+                    <GraduationCap className="text-white" size={48} />
                   </div>
+                </div>
 
-                  <div className="flex flex-col items-start lg:items-end gap-2 text-sm text-muted">
+                {/* Content */}
+                <div className="flex-1 text-center lg:text-left">
+                  <div className="mb-3">
+                    <span className="px-3 py-1 text-sm font-medium rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200">
+                      Intensive Bootcamp
+                    </span>
+                  </div>
+                  <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                    Full Stack Web Development
+                  </h3>
+                  <p className="text-xl text-primary-600 dark:text-primary-400 font-semibold mb-3">
+                    UNC Chapel Hill Coding Bootcamp
+                  </p>
+                  <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-muted mb-4">
                     <div className="flex items-center gap-1">
-                      <Calendar size={14} />
-                      {edu.period}
+                      <Calendar size={16} />
+                      <span>2022 - 2023</span>
                     </div>
                     <div className="flex items-center gap-1">
-                      <MapPin size={14} />
-                      {edu.location}
+                      <MapPin size={16} />
+                      <span>Chapel Hill, NC</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Award size={16} />
+                      <span>24-Week Program</span>
                     </div>
                   </div>
-                </div>
-
-                {/* Description */}
-                <p className="text-body mb-6">{edu.description}</p>
-
-                {/* Highlights */}
-                <div className="mb-6">
-                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                    <Award
+                  <p className="text-body mb-6 max-w-2xl">
+                    Completed comprehensive training in modern web development
+                    technologies including MERN stack, databases, APIs, and
+                    full-stack application development.
+                  </p>
+                  <Link
+                    href="/resume"
+                    className="btn-outline inline-flex items-center gap-2 group"
+                  >
+                    View Complete Education History
+                    <FileText
                       size={18}
-                      className="text-primary-600 dark:text-primary-400"
+                      className="group-hover:translate-x-1 transition-transform"
                     />
-                    Key Highlights
-                  </h4>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    {edu.highlights.map((highlight, highlightIndex) => (
-                      <li
-                        key={highlightIndex}
-                        className="text-sm text-body flex items-start"
-                      >
-                        <span className="text-primary-600 dark:text-primary-400 mr-2 mt-1">
-                          •
-                        </span>
-                        {highlight}
-                      </li>
-                    ))}
-                  </ul>
+                  </Link>
                 </div>
-
-                {/* Skills Learned */}
-                <div className="mb-6">
-                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                    <BookOpen
-                      size={18}
-                      className="text-primary-600 dark:text-primary-400"
-                    />
-                    Curriculum & Skills
-                  </h4>
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                    {edu.skills.map((skillArea, skillIndex) => (
-                      <div key={skillIndex} className="text-sm text-body">
-                        <strong className="text-gray-900 dark:text-white">
-                          {skillArea.split(":")[0]}:
-                        </strong>
-                        <span className="ml-1">{skillArea.split(":")[1]}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Honors */}
-                {edu.honors && (
-                  <div>
-                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-                      Recognition
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {edu.honors.map((honor, honorIndex) => (
-                        <span
-                          key={honorIndex}
-                          className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 rounded-full text-sm font-medium"
-                        >
-                          {honor}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
               </div>
-            </motion.div>
-          ))}
+            </div>
+          </div>
         </motion.div>
 
-        {/* Certifications */}
+        {/* Certifications Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -255,26 +159,22 @@ const Education = () => {
             variants={itemVariants}
             className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-8"
           >
-            Certifications & Specializations
+            Key Certifications
           </motion.h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {certifications.map((cert, index) => (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {certifications.map((cert) => (
               <motion.div
                 key={cert.name}
                 variants={itemVariants}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, y: -5 }}
                 className="card p-6 text-center"
               >
-                <div className="text-4xl mb-4">{cert.icon}</div>
-                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                <div className="text-5xl mb-3">{cert.icon}</div>
+                <h4 className="text-base font-semibold text-gray-900 dark:text-white mb-1">
                   {cert.name}
                 </h4>
-                <p className="text-sm text-primary-600 dark:text-primary-400 font-medium mb-2">
-                  {cert.issuer}
-                </p>
-                <p className="text-xs text-muted mb-3">{cert.date}</p>
-                <p className="text-sm text-body">{cert.description}</p>
+                <p className="text-sm text-muted">{cert.description}</p>
               </motion.div>
             ))}
           </div>
@@ -285,17 +185,19 @@ const Education = () => {
           variants={itemVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="text-center mt-16 p-8 bg-gradient-to-r from-primary-50 to-purple-50 dark:from-primary-900/10 dark:to-purple-900/10 rounded-2xl"
+          className="text-center mt-16 p-8 bg-gradient-to-r from-primary-50 to-purple-50 dark:from-primary-900/10 dark:to-purple-900/10 rounded-2xl border border-primary-100 dark:border-primary-900/20"
         >
+          <BookOpen
+            className="mx-auto mb-4 text-primary-600 dark:text-primary-400"
+            size={40}
+          />
           <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
             Continuous Learning Mindset
           </h3>
           <p className="text-lg text-body max-w-3xl mx-auto">
             Technology evolves rapidly, and I&apos;m committed to staying
-            current with the latest developments. I actively pursue new learning
-            opportunities, contribute to open-source projects, and engage with
-            the developer community to continuously expand my skills and
-            knowledge.
+            current with the latest developments through continuous learning,
+            open-source contributions, and community engagement.
           </p>
         </motion.div>
       </div>

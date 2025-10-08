@@ -34,58 +34,77 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: "Founder & Full Stack Developer",
-      company: "OuterWave Ventures",
-      period: "2023 - Present",
+      title: "Business Owner",
+      company: "Outerwave Logistics",
+      period: "Current",
       location: "Remote",
       type: "Entrepreneurship",
       description:
-        "Founded and developed multiple digital ventures including OuterWave App and OuterWave Logistics. Led full-stack development using MERN stack, managed project timelines, and implemented scalable solutions.",
+        "Build and operate a logistics venture with an emphasis on structured processes, cost clarity, and customer reliability.",
       achievements: [
-        "Built and launched OuterWave App (outerwaveapp.com) - a comprehensive digital platform",
-        "Developed OuterWave Logistics (outerwavelogistics.com) - streamlining logistics operations",
-        "Implemented modern web technologies including React, Node.js, and MongoDB",
-        "Managed end-to-end product development from concept to deployment",
+        "Implement spreadsheet/SQL-first data hygiene for quotes, margins, and service levels",
+        "Automate repeatable operations where feasible for improved efficiency",
+        "Apply accounting discipline to pricing, reconciliation, and reporting",
+        "Manage end-to-end logistics operations with focus on customer satisfaction",
+      ],
+      technologies: [
+        "Excel",
+        "SQL",
+        "JavaScript",
+        "Process Automation",
+        "Data Analysis",
+        "Node.js",
+        "CLI Tools",
+        "Web APIs",
+        "Git",
+        "Cost Modeling",
+        "Financial Reporting",
+        "Database Management",
+        "ORM",
+        "Spreadsheet Engineering",
+      ],
+      link: "https://outerwavelogistics.com",
+    },
+    {
+      title: "Business Owner",
+      company: "Outerwave App",
+      period: "Current",
+      location: "Remote",
+      type: "Entrepreneurship",
+      description:
+        "Develop and iterate on a product experience informed by real-world constraints (users, data, and distribution).",
+      achievements: [
+        "Leverage full-stack training to prototype features and integrate Web APIs",
+        "Manage basic CI/gitflow workflows for efficient development cycles",
+        "Translate market feedback into a prioritized, metrics-aware roadmap",
+        "Built comprehensive digital platform from concept to deployment",
       ],
       technologies: [
         "React",
         "Node.js",
         "MongoDB",
         "Express.js",
-        "JavaScript",
         "TypeScript",
         "Next.js",
+        "Git",
+        "JavaScript (ES6+)",
+        "HTML5",
+        "CSS3",
+        "Tailwind CSS",
+        "REST APIs",
+        "Web APIs",
+        "PWAs",
+        "CI/CD",
+        "GitHub",
+        "NoSQL",
+        "MERN Stack",
+        "OOP",
+        "Responsive Design",
+        "Vercel",
+        "A/B Testing",
+        "Metrics Analytics",
       ],
       link: "https://www.outerwaveapp.com/",
-    },
-    {
-      title: "Full Stack Web Development Student",
-      company: "UNC Chapel Hill Coding Bootcamp",
-      period: "2022 - 2023",
-      location: "Chapel Hill, NC",
-      type: "Education",
-      description:
-        "Completed an intensive 24-week coding bootcamp covering full-stack web development fundamentals and advanced concepts. Gained hands-on experience with modern web technologies and development methodologies.",
-      achievements: [
-        "Mastered front-end and back-end technologies including HTML, CSS, JavaScript, React.js",
-        "Developed proficiency in server-side technologies: Node.js, Express.js, MongoDB, MySQL",
-        "Learned database management with both SQL (MySQL) and NoSQL (MongoDB) databases",
-        "Gained experience with version control (Git), command line operations, and deployment",
-      ],
-      technologies: [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "jQuery",
-        "Bootstrap",
-        "React.js",
-        "Node.js",
-        "Express.js",
-        "MongoDB",
-        "MySQL",
-        "Git",
-      ],
-      link: "https://bootcamp.unc.edu/",
     },
   ];
 
@@ -237,27 +256,6 @@ const Experience = () => {
             ))}
           </motion.div>
         </div>
-
-        {/* Call to action */}
-        <motion.div
-          variants={itemVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="text-center mt-16"
-        >
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-            Ready to collaborate on your next project?
-          </p>
-          <button
-            onClick={() => {
-              const element = document.querySelector("#contact");
-              element?.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="btn-primary"
-          >
-            Let&apos;s Work Together
-          </button>
-        </motion.div>
       </div>
     </section>
   );
