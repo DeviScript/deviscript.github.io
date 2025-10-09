@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   GraduationCap,
   Award,
@@ -146,6 +147,45 @@ const Education = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </motion.div>
+
+        {/* Credly Badge */}
+        <motion.div
+          variants={itemVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="mb-12"
+        >
+          <div className="card p-8 text-center">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+              Professional Certification
+            </h3>
+            <a
+              href="https://www.credly.com/badges/fcb4966d-86de-4420-942e-4f7ed5be6959/public_url"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block transition-transform hover:scale-105"
+            >
+              <div
+                data-iframe-width="300"
+                data-iframe-height="300"
+                data-share-badge-id="fcb4966d-86de-4420-942e-4f7ed5be6959"
+                data-share-badge-host="https://www.credly.com"
+              >
+                <Image
+                  src="/images/certifications/coding-full-stack-boot-camp.1.png"
+                  alt="Full Stack Web Development Certification"
+                  width={200}
+                  height={200}
+                  className="mx-auto rounded-lg shadow-lg"
+                  priority
+                />
+              </div>
+            </a>
+            <p className="mt-4 text-sm text-muted">
+              Click to view credential on Credly
+            </p>
           </div>
         </motion.div>
 

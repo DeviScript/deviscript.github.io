@@ -9,6 +9,37 @@ const Experience = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  // Technology icon mapping
+  const getTechIcon = (tech: string): string => {
+    const iconMap: { [key: string]: string } = {
+      JavaScript: "🟨",
+      "JavaScript (ES6+)": "🟨",
+      TypeScript: "🔷",
+      React: "⚛️",
+      "Next.js": "▲",
+      "Node.js": "🟢",
+      "Express.js": "🚂",
+      MongoDB: "🍃",
+      SQL: "🗄️",
+      Git: "📦",
+      GitHub: "📦",
+      HTML5: "🌐",
+      CSS3: "🎨",
+      "Tailwind CSS": "💨",
+      "REST APIs": "🔌",
+      "Web APIs": "🔌",
+      PWA: "📱",
+      PWAs: "📱",
+      Excel: "📊",
+      ORM: "🔗",
+      NoSQL: "🍃",
+      "Database Management": "🗄️",
+      "CI/CD": "🔄",
+      "MERN Stack": "⚛️",
+    };
+    return iconMap[tech] || "⚙️"; // Default gear icon
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -240,8 +271,9 @@ const Experience = () => {
                         {experience.technologies.map((tech) => (
                           <span
                             key={tech}
-                            className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded text-xs font-medium"
+                            className="flex items-center gap-1.5 px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded text-xs font-medium"
                           >
+                            <span className="text-sm">{getTechIcon(tech)}</span>
                             {tech}
                           </span>
                         ))}

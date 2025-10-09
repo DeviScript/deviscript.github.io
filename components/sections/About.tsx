@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Code, Lightbulb, Users, Zap } from "lucide-react";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 const About = () => {
   const ref = useRef(null);
@@ -79,6 +80,28 @@ const About = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Profile Image */}
+          <motion.div
+            variants={itemVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="relative"
+          >
+            <div className="relative max-w-xs mx-auto">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-400 to-primary-600 rounded-2xl transform rotate-3"></div>
+              <div className="relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-300">
+                <Image
+                  src="/images/profile/profile.webp"
+                  alt="Brian Lockhart"
+                  width={200}
+                  height={200}
+                  className="w-full h-auto"
+                  priority
+                />
+              </div>
+            </div>
+          </motion.div>
+
           {/* Content */}
           <motion.div
             variants={containerVariants}
@@ -132,31 +155,31 @@ const About = () => {
               ))}
             </motion.div>
           </motion.div>
-
-          {/* Highlights Grid */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
-          >
-            {highlights.map((highlight, index) => (
-              <motion.div
-                key={highlight.title}
-                variants={itemVariants}
-                className="card p-6 text-center hover:shadow-xl transition-all duration-300"
-              >
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-lg mb-4">
-                  <highlight.icon size={24} />
-                </div>
-                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                  {highlight.title}
-                </h4>
-                <p className="text-sm text-body">{highlight.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
+
+        {/* Highlights Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-16"
+        >
+          {highlights.map((highlight, index) => (
+            <motion.div
+              key={highlight.title}
+              variants={itemVariants}
+              className="card p-6 text-center hover:shadow-xl transition-all duration-300"
+            >
+              <div className="inline-flex items-center justify-center w-12 h-12 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-lg mb-4">
+                <highlight.icon size={24} />
+              </div>
+              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                {highlight.title}
+              </h4>
+              <p className="text-sm text-body">{highlight.description}</p>
+            </motion.div>
+          ))}
+        </motion.div>
 
         {/* Stats */}
         <motion.div

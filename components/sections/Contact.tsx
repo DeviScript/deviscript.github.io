@@ -2,31 +2,17 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import {
   Mail,
-  Phone,
-  MapPin,
-  Send,
   Github,
   Linkedin,
   ExternalLink,
-  Download,
 } from "lucide-react";
 
 const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<
-    "idle" | "success" | "error"
-  >("idle");
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -49,35 +35,6 @@ const Contact = () => {
         ease: "easeOut",
       },
     },
-  };
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      // Here you would integrate with a form service like Formspree
-      // For now, we'll simulate the submission
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      setSubmitStatus("success");
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    } catch (error) {
-      setSubmitStatus("error");
-    } finally {
-      setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus("idle"), 5000);
-    }
   };
 
   const contactInfo = [
@@ -125,33 +82,30 @@ const Contact = () => {
             Let&apos;s Work Together
           </motion.h2>
           <motion.p variants={itemVariants} className="section-subtitle">
-            Ready to bring your ideas to life? Let&apos;s discuss your next
-            project
+            Ready to bring your ideas to life? Let&apos;s connect
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
+        <div className="max-w-4xl mx-auto">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             className="space-y-8"
           >
-            <motion.div variants={itemVariants}>
+            <motion.div variants={itemVariants} className="text-center">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 Get In Touch
               </h3>
-              <p className="text-lg text-body mb-8">
+              <p className="text-lg text-body mb-8 max-w-2xl mx-auto">
                 I&apos;m always interested in new opportunities, whether
-                it&apos;s a exciting project, a collaboration, or just a chat
-                about technology and innovation. Feel free to reach out!
+                it&apos;s an exciting project, a collaboration, or just a chat
+                about technology and innovation. Feel free to reach out through any of my platforms!
               </p>
             </motion.div>
 
-            {/* Contact Details */}
-            <motion.div variants={itemVariants} className="space-y-6">
-              {contactInfo.map((contact, index) => (
+            <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {contactInfo.map((contact) => (
                 <motion.a
                   key={contact.label}
                   href={contact.href}
@@ -163,202 +117,56 @@ const Contact = () => {
                       ? ""
                       : "noopener noreferrer"
                   }
-                  whileHover={{ x: 5 }}
-                  className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-200 group"
+                  whileHover={{ scale: 1.03, y: -5 }}
+                  className="card p-6 text-center group"
                 >
                   <div
-                    className={`w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center ${contact.color} group-hover:scale-110 transition-transform duration-200`}
+                    className={`w-16 h-16 mx-auto rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center ${contact.color} group-hover:scale-110 transition-transform duration-200 mb-4`}
                   >
-                    <contact.icon size={20} />
+                    <contact.icon size={28} />
                   </div>
-                  <div>
-                    <div className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                      {contact.label}
-                    </div>
-                    <div className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                      {contact.value}
-                    </div>
+                  <div className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">
+                    {contact.label}
                   </div>
-                  <ExternalLink
-                    size={16}
-                    className="text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 ml-auto opacity-0 group-hover:opacity-100 transition-all duration-200"
-                  />
+                  <div className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                    {contact.value}
+                  </div>
                 </motion.a>
               ))}
             </motion.div>
 
-            {/* Resume Download */}
             <motion.div
               variants={itemVariants}
-              className="pt-8 border-t border-gray-200 dark:border-gray-700"
+              className="p-8 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/10 dark:to-emerald-900/10 rounded-2xl text-center border border-green-100 dark:border-green-900/20"
             >
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                Download My Resume
-              </h4>
-              <button
-                onClick={() => {
-                  // This would trigger a resume download
-                  // For now, we'll show an alert
-                  alert(
-                    "Resume download functionality would be implemented here!"
-                  );
-                }}
-                className="btn-outline inline-flex items-center"
-              >
-                <Download size={18} className="mr-2" />
-                Download PDF Resume
-              </button>
-            </motion.div>
-
-            {/* Availability */}
-            <motion.div
-              variants={itemVariants}
-              className="p-6 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/10 dark:to-emerald-900/10 rounded-lg"
-            >
-              <div className="flex items-center gap-3 mb-2">
+              <div className="flex items-center justify-center gap-3 mb-3">
                 <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-                <span className="text-lg font-semibold text-gray-900 dark:text-white">
+                <span className="text-xl font-semibold text-gray-900 dark:text-white">
                   Available for New Projects
                 </span>
               </div>
-              <p className="text-body">
+              <p className="text-body max-w-2xl mx-auto">
                 I&apos;m currently open to full-time opportunities, freelance
-                projects, and collaborative ventures.
-              </p>
-            </motion.div>
-          </motion.div>
-
-          {/* Contact Form */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-          >
-            <motion.div variants={itemVariants} className="card p-8">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-                Send Me a Message
-              </h3>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-gray-900 dark:text-white mb-2"
-                    >
-                      Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                      placeholder="Your name"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-900 dark:text-white mb-2"
-                    >
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="subject"
-                    className="block text-sm font-medium text-gray-900 dark:text-white mb-2"
-                  >
-                    Subject *
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                    placeholder="What's this about?"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-gray-900 dark:text-white mb-2"
-                  >
-                    Message *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    rows={6}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors resize-none"
-                    placeholder="Tell me about your project or idea..."
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                projects, and collaborative ventures. You can also reach out through the contact forms on{" "}
+                <a
+                  href="https://www.outerwaveapp.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-600 dark:text-primary-400 hover:underline font-medium"
                 >
-                  {isSubmitting ? (
-                    <>
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2" />
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <Send size={18} className="mr-2" />
-                      Send Message
-                    </>
-                  )}
-                </button>
-
-                {/* Status Messages */}
-                {submitStatus === "success" && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="p-4 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 rounded-lg"
-                  >
-                    ✅ Message sent successfully! I&apos;ll get back to you
-                    soon.
-                  </motion.div>
-                )}
-
-                {submitStatus === "error" && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="p-4 bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200 rounded-lg"
-                  >
-                    ❌ Something went wrong. Please try again or contact me
-                    directly.
-                  </motion.div>
-                )}
-              </form>
+                  OuterWave App
+                </a>{" "}
+                or{" "}
+                <a
+                  href="https://outerwavelogistics.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-600 dark:text-primary-400 hover:underline font-medium"
+                >
+                  OuterWave Logistics
+                </a>
+                .
+              </p>
             </motion.div>
           </motion.div>
         </div>
