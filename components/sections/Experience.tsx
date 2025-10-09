@@ -3,7 +3,17 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Calendar, MapPin, ExternalLink } from "lucide-react";
+import {
+  Calendar,
+  MapPin,
+  ExternalLink,
+  Brain,
+  Zap,
+  Target,
+  Rocket,
+  Code,
+  TrendingUp,
+} from "lucide-react";
 
 const Experience = () => {
   const ref = useRef(null);
@@ -136,6 +146,63 @@ const Experience = () => {
         "Metrics Analytics",
       ],
       link: "https://www.outerwaveapp.com/",
+    },
+  ];
+
+  const philosophyCards = [
+    {
+      title: "Strategic Integration",
+      subtitle: "Cutting-Edge Leverage",
+      description:
+        "Leveraging advanced tools and frameworks to build scalable, monetized systems with competitive advantage.",
+      quote:
+        "Learning how to learn will be the most essential skill for the next generation.",
+      author: "— Demis Hassabis",
+      icon: Brain,
+      gradient: "from-purple-500 via-blue-500 to-cyan-500",
+      bgPattern: "bg-gradient-to-br",
+      iconColor: "text-purple-200",
+      stats: "Top 3% Power User",
+    },
+    {
+      title: "Precision Engineering",
+      subtitle: "No-Fluff Methodology",
+      description:
+        "Demanding implementation-ready solutions with streamlined workflows that integrate seamlessly into production systems.",
+      quote: "AI will eventually be as good a tutor as any human ever could.",
+      author: "— Bill Gates",
+      icon: Target,
+      gradient: "from-emerald-500 via-teal-500 to-blue-500",
+      bgPattern: "bg-gradient-to-br",
+      iconColor: "text-emerald-200",
+      stats: "Zero-Waste Approach",
+    },
+    {
+      title: "Technical Sophistication",
+      subtitle: "Full-Stack Mastery",
+      description:
+        "Advanced framework expertise from React/Next.js to database optimization, with emphasis on modular architecture.",
+      quote:
+        "Learning how to learn will be the most essential skill for the next generation.",
+      author: "— Demis Hassabis",
+      icon: Code,
+      gradient: "from-orange-500 via-red-500 to-pink-500",
+      bgPattern: "bg-gradient-to-br",
+      iconColor: "text-orange-200",
+      stats: "15+ Technologies",
+    },
+    {
+      title: "Entrepreneurial Innovation",
+      subtitle: "Growth-Focused Building",
+      description:
+        "Monetization-first approach with multi-layer revenue stacks, A/B testing, and metrics-driven optimization.",
+      quote: "AI will eventually be as good a tutor as any human ever could.",
+      author: "— Bill Gates",
+      icon: Rocket,
+      gradient: "from-indigo-500 via-purple-500 to-pink-500",
+      bgPattern: "bg-gradient-to-br",
+      iconColor: "text-indigo-200",
+      stats: "Business Builder",
     },
   ];
 
@@ -283,7 +350,208 @@ const Experience = () => {
                 </div>
 
                 {/* Empty space for alternating layout */}
-                <div className="hidden md:block w-1/2" />
+                <div className="hidden md:block w-1/2">
+                  {/* Philosophy Card */}
+                  {philosophyCards[index] && (
+                    <motion.div
+                      variants={itemVariants}
+                      className={`${
+                        index % 2 === 0 ? "ml-12" : "mr-12"
+                      } relative group h-full`}
+                    >
+                      <motion.div
+                        whileHover={{
+                          scale: 1.02,
+                          rotateY: 3,
+                          rotateX: 3,
+                        }}
+                        className={`${philosophyCards[index].bgPattern} ${philosophyCards[index].gradient} p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 relative overflow-hidden h-full flex flex-col justify-between min-h-[500px]`}
+                      >
+                        {/* Animated background pattern */}
+                        <motion.div
+                          animate={{
+                            backgroundPosition: ["0% 0%", "100% 100%"],
+                          }}
+                          transition={{
+                            duration: 20,
+                            repeat: Infinity,
+                            repeatType: "reverse",
+                          }}
+                          className="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-white/10 opacity-50"
+                        />
+
+                        {/* Floating particles */}
+                        <motion.div
+                          animate={{
+                            y: [-10, 10, -10],
+                            x: [-5, 5, -5],
+                          }}
+                          transition={{
+                            duration: 6,
+                            repeat: Infinity,
+                            repeatType: "reverse",
+                          }}
+                          className="absolute top-4 right-4 w-2 h-2 bg-white/30 rounded-full"
+                        />
+                        <motion.div
+                          animate={{
+                            y: [10, -10, 10],
+                            x: [5, -5, 5],
+                          }}
+                          transition={{
+                            duration: 8,
+                            repeat: Infinity,
+                            repeatType: "reverse",
+                          }}
+                          className="absolute bottom-6 left-6 w-1 h-1 bg-white/40 rounded-full"
+                        />
+
+                        <div className="relative z-10 h-full flex flex-col">
+                          {/* Header Section */}
+                          <div className="flex-shrink-0">
+                            {/* Icon with pulsing effect */}
+                            <motion.div
+                              whileHover={{ rotate: 360 }}
+                              transition={{ duration: 0.6 }}
+                              className="mb-4"
+                            >
+                              {(() => {
+                                const IconComponent =
+                                  philosophyCards[index].icon;
+                                return (
+                                  <IconComponent
+                                    size={32}
+                                    className={`${philosophyCards[index].iconColor} drop-shadow-lg`}
+                                  />
+                                );
+                              })()}
+                            </motion.div>
+
+                            {/* Stats badge */}
+                            <motion.div
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              transition={{ delay: 0.3 }}
+                              className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-bold text-white mb-4"
+                            >
+                              {philosophyCards[index].stats}
+                            </motion.div>
+
+                            {/* Title */}
+                            <h3 className="text-xl font-bold text-white mb-2">
+                              {philosophyCards[index].title}
+                            </h3>
+
+                            {/* Subtitle */}
+                            <p className="text-white/80 text-sm font-medium mb-4">
+                              {philosophyCards[index].subtitle}
+                            </p>
+                          </div>
+
+                          {/* Content Section - Flexible */}
+                          <div className="flex-grow flex flex-col justify-center">
+                            {/* Description */}
+                            <p className="text-white/90 text-sm leading-relaxed mb-4">
+                              {philosophyCards[index].description}
+                            </p>
+
+                            {/* Inspiring Quote */}
+                            <motion.div
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.6 }}
+                              className="relative mb-6"
+                            >
+                              {/* Quote mark */}
+                              <div className="absolute -top-2 -left-2 text-4xl text-amber-300/40 font-bold">
+                                "
+                              </div>
+
+                              {/* Quote content */}
+                              <div className="bg-amber-500/10 backdrop-blur-sm rounded-lg p-4 border border-amber-400/30">
+                                <p className="text-amber-100 text-sm italic leading-relaxed mb-2 font-medium">
+                                  {philosophyCards[index].quote}
+                                </p>
+                                <p className="text-amber-200/80 text-xs font-semibold text-right">
+                                  {philosophyCards[index].author}
+                                </p>
+                              </div>
+                            </motion.div>
+
+                            {/* Key Points */}
+                            <div className="space-y-2 mb-4">
+                              {index === 0 && (
+                                <>
+                                  <motion.div
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: 0.8 }}
+                                    className="flex items-center text-white/80 text-xs"
+                                  >
+                                    <span className="w-2 h-2 bg-white/60 rounded-full mr-2"></span>
+                                    Advanced Tool Integration
+                                  </motion.div>
+                                  <motion.div
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: 0.9 }}
+                                    className="flex items-center text-white/80 text-xs"
+                                  >
+                                    <span className="w-2 h-2 bg-white/60 rounded-full mr-2"></span>
+                                    Competitive Positioning
+                                  </motion.div>
+                                </>
+                              )}
+                              {index === 1 && (
+                                <>
+                                  <motion.div
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: 0.8 }}
+                                    className="flex items-center text-white/80 text-xs"
+                                  >
+                                    <span className="w-2 h-2 bg-white/60 rounded-full mr-2"></span>
+                                    Production-Ready Solutions
+                                  </motion.div>
+                                  <motion.div
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: 0.9 }}
+                                    className="flex items-center text-white/80 text-xs"
+                                  >
+                                    <span className="w-2 h-2 bg-white/60 rounded-full mr-2"></span>
+                                    Seamless Integration
+                                  </motion.div>
+                                </>
+                              )}
+                            </div>
+                          </div>
+
+                          {/* Footer Section */}
+                          <div className="flex-shrink-0">
+                            {/* Animated progress bar */}
+                            <motion.div
+                              initial={{ width: 0 }}
+                              animate={{ width: "100%" }}
+                              transition={{ delay: 0.5, duration: 1.5 }}
+                              className="h-1 bg-white/30 rounded-full overflow-hidden"
+                            >
+                              <motion.div
+                                animate={{ x: ["-100%", "100%"] }}
+                                transition={{
+                                  duration: 2,
+                                  repeat: Infinity,
+                                  repeatType: "reverse",
+                                }}
+                                className="h-full w-1/3 bg-white/60 rounded-full"
+                              />
+                            </motion.div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    </motion.div>
+                  )}
+                </div>
               </motion.div>
             ))}
           </motion.div>
