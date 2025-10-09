@@ -419,7 +419,7 @@ const Resume = () => {
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-3">
                   <div>
                     <h4 className="text-xl font-bold text-gray-900 dark:text-white">
-                      Pre-Major, Business Administration
+                      Pre-Major, Business Administration &amp; Computer Science
                     </h4>
                     <p className="text-primary-600 dark:text-primary-400 font-medium">
                       Florida State College
@@ -431,7 +431,7 @@ const Resume = () => {
                 </div>
                 <div className="flex items-center gap-4 text-sm">
                   <span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full font-semibold">
-                    GPA: 3.95
+                    GPA: 4.00
                   </span>
                 </div>
               </div>
