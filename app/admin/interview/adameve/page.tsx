@@ -11,10 +11,10 @@ import {
   BarChart3,
   Settings,
   FileText,
-  Clock,
   ExternalLink,
   TestTube,
   AlertTriangle,
+  MessageSquare,
   Shield,
 } from "lucide-react";
 
@@ -55,31 +55,83 @@ export default function AdamEveInterviewPage() {
       <div className="mx-auto max-w-7xl p-6 pt-24">
         {/* Header */}
         <div className="mb-8">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600">
-                <Building2 className="w-6 h-6 text-white" />
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-4">
+            <div className="flex items-start gap-4">
+              <div className="p-3 rounded-xl bg-gradient-to-br from-purple-600 via-pink-600 to-rose-600 shadow-lg">
+                <Building2 className="w-8 h-8 text-white" />
               </div>
-              <div>
-                <h1 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
-                  Digital Merchandise Manager — Adam & Eve
+              <div className="flex-1">
+                <h1 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 bg-clip-text text-transparent mb-2 leading-tight">
+                  Digital Merchandise Manager
                 </h1>
-                <p className="text-lg text-gray-600 dark:text-gray-400">
-                  Screen-share pack: playbook, rules, KPIs, tests, compliance
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-2xl font-semibold text-gray-900 dark:text-white">
+                    Adam & Eve
+                  </span>
+                  <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 text-xs font-semibold rounded-full">
+                    PHE, Inc.
+                  </span>
+                </div>
+                <p className="text-base text-gray-600 dark:text-gray-400 max-w-2xl">
+                  Comprehensive interview preparation: playbook, merchandising
+                  rules, KPI frameworks, A/B testing methodology, and compliance
+                  strategy
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-end gap-3">
               <div
-                className="flex items-center gap-2 px-3 py-1 bg-white dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-slate-700"
+                className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-slate-700 shadow-sm"
                 aria-label="Interview date"
               >
                 <Calendar className="w-4 h-4 text-blue-600" />
-                <span className="text-sm text-gray-600 dark:text-gray-300">
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
                   {todayLabel()}
                 </span>
               </div>
               <StatusBadge status="Interview Ready" variant="success" />
+            </div>
+          </div>
+        </div>
+
+        {/* Research Methodology Disclaimer */}
+        <div className="mb-8 bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-900/20 dark:via-indigo-900/20 dark:to-purple-900/20 rounded-xl p-6 border-2 border-blue-200 dark:border-blue-800 shadow-sm">
+          <div className="flex items-start gap-4">
+            <div className="p-2 rounded-lg bg-blue-100 dark:bg-blue-900/50">
+              <Shield className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+            </div>
+            <div className="flex-1">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                Research Methodology & Data Disclaimer
+              </h3>
+              <p className="text-sm text-gray-700 dark:text-gray-300 mb-3 leading-relaxed">
+                This presentation demonstrates research depth and analytical
+                approach to the role. All company data, market metrics, and
+                financial figures are
+                <strong>
+                  {" "}
+                  estimates based on publicly available sources
+                </strong>{" "}
+                including corporate websites, industry databases (eCommerce
+                Database, IBISWorld, Statista), LinkedIn profiles, and news
+                articles. These figures are used to showcase strategic thinking
+                and are <strong>subject to correction</strong> during the
+                interview process.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 bg-white dark:bg-slate-800 text-xs font-medium text-gray-700 dark:text-gray-300 rounded-full border border-gray-200 dark:border-slate-600">
+                  Public Research
+                </span>
+                <span className="px-3 py-1 bg-white dark:bg-slate-800 text-xs font-medium text-gray-700 dark:text-gray-300 rounded-full border border-gray-200 dark:border-slate-600">
+                  Industry Estimates
+                </span>
+                <span className="px-3 py-1 bg-white dark:bg-slate-800 text-xs font-medium text-gray-700 dark:text-gray-300 rounded-full border border-gray-200 dark:border-slate-600">
+                  Pending Validation
+                </span>
+                <span className="px-3 py-1 bg-white dark:bg-slate-800 text-xs font-medium text-gray-700 dark:text-gray-300 rounded-full border border-gray-200 dark:border-slate-600">
+                  Strategic Context
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -204,6 +256,22 @@ export default function AdamEveInterviewPage() {
               employee engagement in a traditionally transactional industry.
             </p>
           </div>
+
+          {/* Research Disclosure */}
+          <div className="mt-4 p-3 bg-gray-50 dark:bg-slate-700/30 rounded-lg border border-gray-200 dark:border-slate-600">
+            <p className="text-xs text-gray-600 dark:text-gray-400 flex items-start gap-2">
+              <Shield className="w-3 h-3 flex-shrink-0 mt-0.5 text-gray-500" />
+              <span>
+                <strong>Research Sources:</strong> Company snapshot based on
+                publicly available information including Adam & Eve corporate
+                site, PHE Inc. career pages, eCommerce Database estimates
+                (2024), LinkedIn company profiles, industry reports (IBISWorld,
+                Statista), and news articles (News & Observer, Triangle Business
+                Journal). All financial figures are estimates pending interview
+                validation.
+              </span>
+            </p>
+          </div>
         </section>
 
         {/* Role Scope Cards */}
@@ -306,12 +374,68 @@ export default function AdamEveInterviewPage() {
           </div>
         </section>
 
+        {/* Candidate Assessment Profile */}
+        <section className="mb-8">
+          <div className="bg-gradient-to-r from-indigo-50 via-blue-50 to-purple-50 dark:from-indigo-900/20 dark:via-blue-900/20 dark:to-purple-900/20 rounded-xl p-8 border border-indigo-200 dark:border-indigo-800 shadow-lg">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="p-4 bg-indigo-100 dark:bg-indigo-900/30 rounded-xl">
+                <MessageSquare className="w-10 h-10 text-indigo-600" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                  🎯 Candidate Deep Dive: Comprehensive Q&A Profile
+                </h2>
+                <p className="text-gray-600 dark:text-gray-400 text-lg">
+                  Detailed assessment covering experience, approach,
+                  problem-solving, and cultural alignment
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+              <div className="text-center p-4 bg-white dark:bg-slate-800/50 rounded-lg border border-indigo-200 dark:border-indigo-700">
+                <div className="text-3xl font-bold text-indigo-600 mb-1">
+                  40+
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  Scenarios Covered
+                </div>
+              </div>
+              <div className="text-center p-4 bg-white dark:bg-slate-800/50 rounded-lg border border-indigo-200 dark:border-indigo-700">
+                <div className="text-3xl font-bold text-blue-600 mb-1">6</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  Competency Areas
+                </div>
+              </div>
+              <div className="text-center p-4 bg-white dark:bg-slate-800/50 rounded-lg border border-indigo-200 dark:border-indigo-700">
+                <div className="text-3xl font-bold text-purple-600 mb-1">
+                  100%
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  Adam & Eve Context
+                </div>
+              </div>
+            </div>
+
+            <Link
+              href="/admin/interview/adameve/qa-preparation"
+              className="inline-flex items-center gap-3 px-6 py-4 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all shadow-md hover:shadow-lg group"
+            >
+              <span className="font-medium">
+                View Complete Candidate Assessment
+              </span>
+              <ExternalLink className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        </section>
+
         {/* Interview Artifacts */}
         <section className="mb-8 bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-slate-700">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
             <ExternalLink className="w-5 h-5 text-blue-600" />
             Interview Artifacts
           </h2>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Link
               href="/admin/interview/adameve/playbook"
@@ -532,24 +656,25 @@ export default function AdamEveInterviewPage() {
               </h3>
               <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
                 <li>
-                  • <strong>5+ years eCommerce merchandising</strong> -
-                  Demonstrated in portfolio
+                  • <strong>Technical Systems Architecture</strong> - Data
+                  pipelines, ETL automation, and backend integration expertise
                 </li>
                 <li>
-                  • <strong>HawkSearch platform expertise</strong> -
-                  Configuration & rule management
+                  • <strong>HawkSearch Platform (Learning Path)</strong> -
+                  API-level understanding, configuration study, vendor
+                  partnership
                 </li>
                 <li>
-                  • <strong>Cross-functional collaboration</strong> - Media,
-                  CRM, Creative, Brand alignment
+                  • <strong>Cross-functional Project Leadership</strong> - 7-lab
+                  coordination, stakeholder alignment, deadline management
                 </li>
                 <li>
-                  • <strong>Data-driven experimentation</strong> - A/B testing
-                  culture & methodology
+                  • <strong>Data-driven Methodology</strong> - A/B testing
+                  frameworks, statistical analysis, automated reporting
                 </li>
                 <li>
-                  • <strong>Platform enhancement strategy</strong> - Scalability
-                  & process improvements
+                  • <strong>AI/ML Innovation Implementation</strong> - LLM/RAG
+                  systems, personalization algorithms, automation tools
                 </li>
               </ul>
             </div>
@@ -560,24 +685,25 @@ export default function AdamEveInterviewPage() {
               </h3>
               <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
                 <li>
-                  • <strong>Google Analytics & ContentSquare</strong> -
-                  Behavioral analysis expertise
+                  • <strong>Advanced Analytics Implementation</strong> -
+                  Python/SQL automation, custom dashboards, behavioral analysis
                 </li>
                 <li>
-                  • <strong>Backend product onboarding</strong> - AS400
-                  integration experience
+                  • <strong>Backend Systems Integration</strong> - Product data
+                  processing, API development, database optimization
                 </li>
                 <li>
-                  • <strong>AI & personalization trends</strong> - Innovation
-                  opportunity identification
+                  • <strong>Emerging Technology Adoption</strong> -
+                  AI/personalization research, innovation opportunity
+                  identification
                 </li>
                 <li>
-                  • <strong>Revenue-focused optimization</strong> - ROI
-                  measurement & prioritization
+                  • <strong>Performance Optimization Focus</strong> - 62% error
+                  reduction, 70% cycle time improvement, ROI measurement
                 </li>
                 <li>
-                  • <strong>Customer-centric mindset</strong> - Experience
-                  tailoring for engagement
+                  • <strong>Customer-centric Technical Solutions</strong> - User
+                  experience through data architecture and automation
                 </li>
               </ul>
             </div>
@@ -596,6 +722,143 @@ export default function AdamEveInterviewPage() {
               collaborative approach, and
               <strong> mission-driven optimization</strong> that balances
               revenue goals with brand values and customer education.
+            </p>
+          </div>
+        </div>
+
+        {/* Skills Translation & Gap Mitigation */}
+        <div className="mb-8 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-xl p-6 border border-amber-200 dark:border-amber-800">
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+            <Shield className="w-5 h-5 text-amber-600" />
+            Skills Translation & Experience Gap Strategy
+          </h2>
+
+          <div className="mb-6 p-4 bg-white dark:bg-slate-800 rounded-lg border border-amber-200 dark:border-slate-700">
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-3 text-amber-700 dark:text-amber-400">
+              📋 Honest Assessment: Experience Gaps vs. Transferable Strengths
+            </h3>
+            <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">
+              <strong>Gap:</strong> 2-3 years short of traditional 5+ years
+              eCommerce merchandising requirement. However, my technical
+              foundation provides accelerated learning capacity and unique
+              analytical advantages.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-3">
+                🔄 Direct Experience Translation
+              </h3>
+              <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-300">
+                <li>
+                  <strong>
+                    Data Pipeline Architecture → Search Optimization:
+                  </strong>
+                  <br />
+                  Built ETL systems processing payment/shipping events =
+                  understanding of product data flow for search indexing
+                </li>
+                <li>
+                  <strong>ML Anomaly Detection → Performance Analytics:</strong>
+                  <br />
+                  Automated classification of data outliers = identifying search
+                  query patterns and conversion anomalies
+                </li>
+                <li>
+                  <strong>
+                    Multi-lab Workflow Consolidation → Cross-functional
+                    Leadership:
+                  </strong>
+                  <br />
+                  Reduced 7-lab reporting cycle from 10→3 days = orchestrating
+                  merchandising updates across teams
+                </li>
+                <li>
+                  <strong>
+                    LLM/RAG Pipeline Development → AI-driven Recommendations:
+                  </strong>
+                  <br />
+                  Built narrative-to-content automation = implementing
+                  personalization algorithms
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-3">
+                ⚡ Accelerated Learning Advantages
+              </h3>
+              <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-300">
+                <li>
+                  <strong>Technical Deep-dive Capability:</strong>
+                  <br />
+                  Can read HawkSearch API documentation, understand backend
+                  systems, debug complex integrations independently
+                </li>
+                <li>
+                  <strong>Data-first Approach:</strong>
+                  <br />
+                  Won't rely on intuition—will instrument everything, A/B test
+                  systematically, measure statistical significance
+                </li>
+                <li>
+                  <strong>Automation & Efficiency:</strong>
+                  <br />
+                  Will build dashboards, automate reporting, create SQL queries
+                  for custom analysis beyond standard tools
+                </li>
+                <li>
+                  <strong>AI/Personalization Innovation:</strong>
+                  <br />
+                  Can implement cutting-edge recommendation systems, not just
+                  configure existing tools
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-6 p-4 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-lg border border-green-200 dark:border-green-800">
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+              <span className="w-2 h-2 bg-green-500 rounded-full" />
+              90-Day Competency Bridge Plan
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-700 dark:text-gray-300">
+              <div>
+                <strong>Days 1-30: Foundation</strong>
+                <br />
+                Audit current HawkSearch setup, analyze merchandising team
+                workflows and pain points, complete Baymard Institute courses on
+                eCommerce search UX
+              </div>
+              <div>
+                <strong>Days 31-60: Application</strong>
+                <br />
+                Implement first optimization (synonym expansion), build
+                automated KPI dashboard, establish A/B testing framework
+              </div>
+              <div>
+                <strong>Days 61-90: Innovation</strong>
+                <br />
+                Deploy AI-enhanced personalization, deliver measurable lift in
+                key metrics, propose roadmap for advanced features
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-4 p-4 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg border border-purple-200 dark:border-purple-800">
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+              <span className="w-2 h-2 bg-purple-500 rounded-full" />
+              Why Technical Background Is Actually an Asset
+            </h3>
+            <p className="text-sm text-gray-700 dark:text-gray-300">
+              Most merchandising managers rely on vendor support for complex
+              implementations. I can <strong>build custom solutions</strong>,
+              <strong>debug integration issues</strong>, and{" "}
+              <strong>innovate beyond platform limitations</strong>. This
+              technical depth means faster problem-solving and the ability to
+              implement advanced features that typical merchandising teams can't
+              handle in-house.
             </p>
           </div>
         </div>
@@ -654,134 +917,70 @@ export default function AdamEveInterviewPage() {
             <Users className="w-5 h-5 text-green-600" />
             Questions for the Panel
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-4 bg-gray-50 dark:bg-slate-700/50 rounded-lg">
-              <p className="text-sm text-gray-700 dark:text-gray-300">
-                What data sources feed into HawkSearch currently, and how
-                frequently do inventory levels sync?
-              </p>
-            </div>
-            <div className="p-4 bg-gray-50 dark:bg-slate-700/50 rounded-lg">
-              <p className="text-sm text-gray-700 dark:text-gray-300">
-                How do you currently handle seasonal promotions and what's the
-                approval process for merchandising rule changes?
-              </p>
-            </div>
-            <div className="p-4 bg-gray-50 dark:bg-slate-700/50 rounded-lg">
-              <p className="text-sm text-gray-700 dark:text-gray-300">
-                What content review process exists for new product descriptions
-                and how can search help surface educational content?
-              </p>
-            </div>
-            <div className="p-4 bg-gray-50 dark:bg-slate-700/50 rounded-lg">
-              <p className="text-sm text-gray-700 dark:text-gray-300">
-                Are there experimentation guardrails I should know about, and
-                who are the key stakeholders for A/B test approvals?
-              </p>
-            </div>
-            <div className="p-4 bg-gray-50 dark:bg-slate-700/50 rounded-lg">
-              <p className="text-sm text-gray-700 dark:text-gray-300">
-                How do customer privacy concerns factor into personalization
-                strategy, and what data can we use for segmentation?
-              </p>
-            </div>
-            <div className="p-4 bg-gray-50 dark:bg-slate-700/50 rounded-lg">
-              <p className="text-sm text-gray-700 dark:text-gray-300">
-                What does success look like for this role in the first year, and
-                how is performance measured?
-              </p>
+
+          {/* Core 5 Questions */}
+          <div className="mb-6">
+            <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+              Core 5 Questions
+            </h3>
+            <div className="grid grid-cols-1 gap-4">
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
+                <p className="text-sm text-gray-700 dark:text-gray-300 font-medium">
+                  Why is this role open, and who would I report to?
+                </p>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
+                <p className="text-sm text-gray-700 dark:text-gray-300 font-medium">
+                  What are the top priorities you'd want tackled in the first 90
+                  days?
+                </p>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
+                <p className="text-sm text-gray-700 dark:text-gray-300 font-medium">
+                  When someone really excels in this role, what are they doing
+                  day-to-day? Which skills or traits are non-negotiable?
+                </p>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
+                <p className="text-sm text-gray-700 dark:text-gray-300 font-medium">
+                  Which teams would I work with most, and what does good
+                  collaboration look like here?
+                </p>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
+                <p className="text-sm text-gray-700 dark:text-gray-300 font-medium">
+                  How would you describe the team culture and how decisions get
+                  made?
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Links & Assets */}
-        <div className="mb-8 bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-slate-700">
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-            <ExternalLink className="w-5 h-5 text-indigo-600" />
-            Assets & References
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <a
-              href="#"
-              className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-slate-700/50 rounded-lg hover:shadow-md transition-all"
-            >
-              <FileText className="w-5 h-5 text-blue-600" />
-              <span className="text-sm text-gray-700 dark:text-gray-300">
-                Portfolio Presentation
-              </span>
-            </a>
-            <a
-              href="#"
-              className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-slate-700/50 rounded-lg hover:shadow-md transition-all"
-            >
-              <BarChart3 className="w-5 h-5 text-green-600" />
-              <span className="text-sm text-gray-700 dark:text-gray-300">
-                KPI Screenshot
-              </span>
-            </a>
-            <a
-              href="#"
-              className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-slate-700/50 rounded-lg hover:shadow-md transition-all"
-            >
-              <ExternalLink className="w-5 h-5 text-purple-600" />
-              <span className="text-sm text-gray-700 dark:text-gray-300">
-                Demo Loom Video
-              </span>
-            </a>
-          </div>
-        </div>
-
-        {/* Recent Activity */}
-        <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-slate-700">
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-            <Clock className="w-5 h-5 text-blue-600" />
-            Recent Prep Activity
-          </h2>
-          <div className="space-y-3">
-            <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 dark:bg-slate-700/50">
-              <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-              <span className="text-sm text-gray-700 dark:text-gray-300">
-                Added company founding story and philanthropic mission research
-              </span>
-              <span className="text-xs text-gray-500 dark:text-gray-400 ml-auto">
-                1 hour ago
-              </span>
-            </div>
-            <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 dark:bg-slate-700/50">
-              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-              <span className="text-sm text-gray-700 dark:text-gray-300">
-                Generated search merchandising playbook
-              </span>
-              <span className="text-xs text-gray-500 dark:text-gray-400 ml-auto">
-                2 hours ago
-              </span>
-            </div>
-            <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 dark:bg-slate-700/50">
-              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-              <span className="text-sm text-gray-700 dark:text-gray-300">
-                Exported 25 adult-category synonyms and compliance redirects
-              </span>
-              <span className="text-xs text-gray-500 dark:text-gray-400 ml-auto">
-                3 hours ago
-              </span>
-            </div>
-            <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 dark:bg-slate-700/50">
-              <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-              <span className="text-sm text-gray-700 dark:text-gray-300">
-                Built KPI performance dashboard with before/after metrics
-              </span>
-              <span className="text-xs text-gray-500 dark:text-gray-400 ml-auto">
-                Yesterday
-              </span>
-            </div>
-            <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 dark:bg-slate-700/50">
-              <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-              <span className="text-sm text-gray-700 dark:text-gray-300">
-                Researched HawkSearch implementation best practices
-              </span>
-              <span className="text-xs text-gray-500 dark:text-gray-400 ml-auto">
-                2 days ago
-              </span>
+          {/* Optional Add-ons */}
+          <div>
+            <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+              <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+              Optional Add-ons (use 1–2 if time allows)
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                <p className="text-sm text-gray-700 dark:text-gray-300">
+                  What are the biggest challenges you expect this hire to tackle
+                  in the first quarter?
+                </p>
+              </div>
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                <p className="text-sm text-gray-700 dark:text-gray-300">
+                  What tools or processes does the team use today for planning
+                  and execution (e.g., calendars, approvals, asset flow)?
+                </p>
+              </div>
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                <p className="text-sm text-gray-700 dark:text-gray-300">
+                  What are the next steps and expected timeline for the process?
+                </p>
+              </div>
             </div>
           </div>
         </div>
