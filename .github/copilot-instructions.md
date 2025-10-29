@@ -1,16 +1,20 @@
-<!-- Use this file to provide workspace-specific custom instructions to Copilot. For more details, visit https://code.visualstudio.com/docs/copilot/copilot-customization#_use-a-githubcopilotinstructionsmd-file -->
+<!-- Use this file to provide workspace-specific custom instructions to Copilot. For more details, visit https://code.visualstudio.com/docs/copilot/copilot-customization -->
 
 ## Project Overview
 
 This is Brian Lockhart's professional personal website - a complete, production-ready portfolio showcasing his skills as a Full Stack Developer and Entrepreneur. Built with Next.js 14 App Router, TypeScript, and Tailwind CSS, featuring a dark modern theme with minimalist/tech-focused aesthetic and enterprise-level architecture.
 
+**NEW: Comprehensive Interview Preparation System** - Professional interview materials demonstrating research depth, technical competency, and strategic thinking for role-specific presentations.
+
 ## Project Status
 
 ✅ **PRODUCTION READY** - Successfully deployed to Vercel at https://deviscript-github-io.vercel.app
+✅ **INTERVIEW READY** - Complete Adam & Eve Digital Merchandise Manager preparation materials live
 
 ## Deployment Status
 
 - **Live Website**: https://deviscript-github-io.vercel.app
+- **Interview Materials**: https://deviscript-github-io.vercel.app/admin/interview/adameve
 - **Deployment Method**: Vercel with automatic CI/CD from GitHub
 - **Build Status**: ✅ Successfully building and deploying on Vercel
 - **Environment**: Production-ready with proper environment configuration
@@ -47,6 +51,19 @@ This is Brian Lockhart's professional personal website - a complete, production-
 ✅ **Clean Architecture** - Enterprise-level Separation of Concerns
 ✅ **Type Safety** - Comprehensive TypeScript implementation
 ✅ **Professional Organization** - Structured docs, scripts, and configs
+
+## NEW: Interview Preparation System
+
+✅ **Admin Dashboard** - `/admin/` - Professional interview materials management
+✅ **Company Research Hub** - `/admin/interview/adameve/` - Comprehensive Adam & Eve analysis
+✅ **Search & Merchandising Playbook** - HawkSearch implementation strategy & governance
+✅ **Product Intelligence Dashboard** - Catalog analysis, pricing strategy, brand tiers
+✅ **KPI Performance Reports** - Before/after metrics with delta analysis and A/B testing
+✅ **Synonyms & Compliance Database** - 30+ adult category search optimizations
+✅ **A/B Testing Library** - Experimental methodology demonstrations
+✅ **Role Alignment Matrix** - Job requirements mapped to competencies
+✅ **30/60/90 Day Strategic Plan** - Implementation roadmap
+✅ **Company Snapshot** - Founding story, mission, market position, metrics
 
 ## Tech Stack
 
@@ -163,7 +180,18 @@ personal-site/
 │   ├── layout.tsx            # Root layout with navigation and theme
 │   ├── page.tsx              # Homepage combining all sections
 │   ├── sitemap.ts            # SEO sitemap generation
-│   └── robots.ts             # SEO robots configuration
+│   ├── robots.ts             # SEO robots configuration
+│   ├── resume/               # Resume page
+│   │   └── page.tsx
+│   └── admin/                # 🆕 INTERVIEW PREPARATION SYSTEM
+│       ├── page.tsx          # Admin dashboard
+│       └── interview/
+│           └── adameve/      # Adam & Eve Digital Merchandise Manager prep
+│               ├── page.tsx  # Main interview hub with company research
+│               ├── playbook/ # Search & merchandising strategy
+│               ├── kpis/     # Performance metrics & A/B testing
+│               ├── synonyms/ # Adult category search optimization
+│               └── product-intelligence/ # Catalog & pricing analysis
 ├── 🧩 components/             # React UI Components
 │   ├── layout/
 │   │   ├── Navigation.tsx    # Responsive navbar with dark mode
@@ -177,7 +205,8 @@ personal-site/
 │       ├── Experience.tsx    # Professional timeline
 │       ├── Projects.tsx      # Portfolio with OuterWave projects
 │       ├── Education.tsx     # UNC bootcamp details
-│       └── Contact.tsx       # Contact form and information
+│       ├── Contact.tsx       # Contact form and information
+│       └── Resume.tsx        # 🆕 Resume section component
 ├── 🛠️ lib/                    # Core Application Logic
 │   ├── index.ts              # Centralized exports
 │   ├── config.ts             # Environment configuration
@@ -195,7 +224,9 @@ personal-site/
 ├── 📄 docs/                   # Documentation
 │   ├── setup/               # Setup and requirements
 │   ├── development/         # Development guides and architecture
-│   └── deployment/          # Deployment instructions
+│   ├── deployment/          # Deployment instructions
+│   └── resume/              # 🆕 Resume information and details
+│       └── resume_information.md
 ├── ⚙️ config/                 # Configuration files
 │   ├── postcss.config.js    # PostCSS configuration
 │   └── tailwind.config.js   # Tailwind CSS configuration
@@ -205,9 +236,11 @@ personal-site/
 ├── 🌐 public/                 # Static assets
 │   ├── images/
 │   │   ├── projects/        # Project screenshots
-│   │   └── profile/         # Profile images
+│   │   ├── profile/         # Profile images
+│   │   └── certifications/  # 🆕 Certification images
 │   ├── icons/               # Favicons and app icons
 │   ├── documents/           # Downloadable files
+│   ├── videos/              # 🆕 Video content
 │   └── manifest.json        # PWA configuration
 └── Root configuration files   # Package.json, Next.js config, etc.
 ```
@@ -253,6 +286,16 @@ import type { SomeSpecificType } from "@/lib/types";
 - **Complete Separation of Concerns architecture**
 - **Professional project organization**
 - **Comprehensive TypeScript implementation**
+- **🆕 COMPREHENSIVE INTERVIEW PREPARATION SYSTEM**
+  - **Adam & Eve Digital Merchandise Manager materials**
+  - **Company research with founding story and mission**
+  - **Search & merchandising playbook with HawkSearch strategy**
+  - **Product intelligence dashboard with pricing analysis**
+  - **KPI performance reports with A/B testing methodology**
+  - **30+ adult category synonyms with compliance considerations**
+  - **Role alignment matrix matching exact job requirements**
+  - **30/60/90 day strategic implementation plan**
+  - **Professional presentation ready for company review**
 
 ### 🔄 Potential Enhancements
 
@@ -261,6 +304,7 @@ import type { SomeSpecificType } from "@/lib/types";
 - **Analytics Enhancement**: Add detailed visitor tracking
 - **Custom Domain**: Configure custom domain if desired
 - **Performance Monitoring**: Add Core Web Vitals tracking
+- **Additional Interview Prep**: Templates for other companies/roles
 
 ### 🚀 Quick Start Commands
 
@@ -295,3 +339,6 @@ npm run lint         # Run ESLint checks
 ✅ **Automated deployment pipeline**
 ✅ **Documentation complete**
 ✅ **Professional architecture implemented**
+✅ **🆕 INTERVIEW MATERIALS LIVE: https://deviscript-github-io.vercel.app/admin/interview/adameve**
+✅ **Enterprise-level interview preparation system deployed**
+✅ **TypeScript deprecation warnings resolved**
