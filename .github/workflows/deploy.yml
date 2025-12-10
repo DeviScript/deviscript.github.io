@@ -1,0 +1,23 @@
+name: "GitHub Pages Deployment - Disabled"
+
+on:
+  workflow_dispatch:
+    inputs:
+      enable:
+        description: "This workflow is disabled - using Vercel deployment"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+
+jobs:
+  deployment-disabled:
+    runs-on: ubuntu-latest
+    if: false
+    steps:
+      - name: Deployment Notice
+        run: |
+          echo "GitHub Pages deployment is disabled for this project"
+          echo "The site is deployed via Vercel at: https://deviscript-github-io.vercel.app"
+          echo "Automatic deployment happens on every push to main branch"
