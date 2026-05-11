@@ -342,3 +342,121 @@ npm run lint         # Run ESLint checks
 ✅ **🆕 INTERVIEW MATERIALS LIVE: https://deviscript-github-io.vercel.app/admin/interview/adameve**
 ✅ **Enterprise-level interview preparation system deployed**
 ✅ **TypeScript deprecation warnings resolved**
+✅ **🆕 HYDRATION ERRORS FIXED** - All client components use `dynamic({ ssr: false })`
+✅ **🆕 INTERVIEW QUESTIONS PAGE** - `/admin/interview-questions` live
+✅ **🆕 EXPERT COMPENDIUM** - `/admin/compendium` live
+
+---
+
+## 🔁 Session Resume Context (May 2026)
+
+> **Copy-paste this section into a new Copilot chat to resume work on this project.**
+
+---
+
+### What Was Built (May 2026 Session)
+
+Three major features were added and pushed to `main` (deployed on Vercel):
+
+#### 1. Hydration Error Fix (permanent pattern)
+All client components that use `framer-motion` or `lucide-react` caused SSR/client hydration mismatches. The fix was applied to every affected file:
+
+```tsx
+// Pattern used in every page file:
+import dynamic from "next/dynamic";
+const MyComponent = dynamic(() => import("./MyComponent"), { ssr: false });
+export default function Page() { return <MyComponent />; }
+```
+
+**Files modified:**
+- `app/page.tsx` — all 7 section components (Hero, About, Skills, Experience, Projects, Education, Contact)
+- `app/layout.tsx` — Navigation and Footer
+- `app/admin/page.tsx` — AdminPortal (AdminClient.tsx)
+
+**Rule going forward:** Any new page that imports a component using `framer-motion` or `lucide-react` must use this `dynamic(..., { ssr: false })` pattern. Never use mounted-guard (`useEffect` + state flag) — it was abandoned.
+
+---
+
+#### 2. `/admin/interview-questions` Page
+
+**Files:**
+- `app/admin/interview-questions/page.tsx` — thin wrapper with `ssr: false`
+- `app/admin/interview-questions/InterviewQuestionsClient.tsx` — full implementation
+
+**Content:** 63 Q&A items across 5 tabbed categories:
+- Behavioral (14), Full Stack (14), AI/LLMs (15), Data (20), Product/PM (20)
+
+**UI Features:** Accordion cards, tab navigation, live search per tab, tag badges, compendium callout banner at bottom
+
+**Compendium link:** A banner at the bottom of the page links to `/admin/compendium` with `target="_blank"` (opens in new tab).
+
+---
+
+#### 3. `/admin/compendium` — Expert Technical Compendium
+
+**Files:**
+- `app/admin/compendium/page.tsx` — thin wrapper with `ssr: false`
+- `app/admin/compendium/CompendiumClient.tsx` — full implementation (~900 lines)
+
+**Content:** 12 deep-dive topics across 3 domains, each with 5 expandable sections:
+- **Full Stack:** Frontend Development, Backend & Node.js, Databases, DevOps & Testing
+- **AI / ML:** Large Language Models, RAG Workflows, Model Evaluation, ML Pipelines
+- **Data Engineering:** ETL Pipelines, Data Modeling, Big Data & Streaming, Analytics & Reporting
+
+Each topic contains: Definition & Theory, Practical Examples & Code, Advanced Insights, Common Pitfalls, Interview Tips
+
+**UI:** Category tabs (top), topic sidebar (left), expandable SectionCards (right). "Back to Interview Questions" link → `/admin/interview-questions`.
+
+**`renderContent` utility:** Parses strings into React elements — paragraphs (`\n`-split), bullet lists (`• ` or `- ` prefix), code blocks (lines between ` ``` ` markers).
+
+---
+
+#### 4. Markdown Reference Files (`compendium/` directory)
+
+VS Code-readable companion files mirroring the compendium content:
+
+```
+compendium/
+├── README.md
+├── References.md
+├── Diagrams/README.md
+├── FullStack/Frontend.md, Backend.md, Databases.md, DevOps.md
+├── AI_ML/LLMs.md, RAG_Workflows.md, Model_Evaluation.md, Pipelines.md
+└── Data_Engineering/ETL_Pipelines.md, Data_Modeling.md, Big_Data.md, Analytics.md
+```
+
+---
+
+### Current Route Map (`/admin`)
+
+| Route | File | Status |
+|-------|------|--------|
+| `/admin` | `app/admin/page.tsx` → `AdminClient.tsx` | ✅ Live |
+| `/admin/interview-questions` | `app/admin/interview-questions/page.tsx` → `InterviewQuestionsClient.tsx` | ✅ Live |
+| `/admin/compendium` | `app/admin/compendium/page.tsx` → `CompendiumClient.tsx` | ✅ Live |
+| `/admin/interview/adameve` | existing | ✅ Live |
+
+---
+
+### Dev Server
+
+```bash
+cd projects/deviscript.github.io-main
+npm run dev     # runs on http://localhost:3000
+```
+
+To hard-reset the dev server (fixes stale cache issues):
+```bash
+pkill -f "next dev" 2>/dev/null; rm -rf .next && npm run dev
+```
+
+---
+
+### Potential Next Steps
+
+- Add more Q&A to interview-questions (current: 63 total)
+- Add more topics to the compendium (currently 12 topics)
+- Add a `/admin/interview/[company]` template for future company-specific prep
+- Contact form integration (Formspree or Resend)
+- Add real content to `compendium/Diagrams/` (Mermaid or PNG architecture diagrams)
+- Connect compendium markdown files to a rendered `/admin/docs` route
