@@ -43,8 +43,7 @@ const About = () => {
     {
       icon: Lightbulb,
       title: "Problem Solver",
-      description:
-        "Passionate about finding creative solutions to complex technical challenges.",
+      description: "Passionate about finding creative solutions to complex technical challenges.",
     },
     {
       icon: Users,
@@ -55,8 +54,7 @@ const About = () => {
     {
       icon: Zap,
       title: "Quick Learner",
-      description:
-        "Adaptable and eager to learn new technologies and frameworks as needed.",
+      description: "Adaptable and eager to learn new technologies and frameworks as needed.",
     },
   ];
 
@@ -74,8 +72,7 @@ const About = () => {
             About Me
           </motion.h2>
           <motion.p variants={itemVariants} className="section-subtitle">
-            Passionate developer with a love for creating innovative digital
-            solutions
+            Passionate developer with a love for creating innovative digital solutions
           </motion.p>
         </motion.div>
 
@@ -114,31 +111,25 @@ const About = () => {
                 Full Stack Developer & Entrepreneur
               </h3>
               <p className="text-body">
-                I&apos;m a passionate Full Stack Developer with expertise in the
-                MERN stack (MongoDB, Express.js, React, Node.js). As a graduate
-                of the UNC Chapel Hill Coding Bootcamp, I&apos;ve built a strong
-                foundation in modern web development technologies and best
-                practices.
+                I&apos;m a passionate Full Stack Developer with expertise in the MERN stack
+                (MongoDB, Express.js, React, Node.js). As a graduate of the UNC Chapel Hill Coding
+                Bootcamp, I&apos;ve built a strong foundation in modern web development technologies
+                and best practices.
               </p>
               <p className="text-body">
-                Beyond coding, I&apos;m an entrepreneur who founded OuterWave
-                ventures, focusing on innovative digital solutions that solve
-                real-world problems. I believe in the power of technology to
-                transform ideas into impactful products.
+                Beyond coding, I&apos;m an entrepreneur who founded OuterWave ventures, focusing on
+                innovative digital solutions that solve real-world problems. I believe in the power
+                of technology to transform ideas into impactful products.
               </p>
               <p className="text-body">
-                When I&apos;m not coding, you&apos;ll find me exploring new
-                technologies, contributing to open-source projects, or working
-                on my next entrepreneurial venture. I&apos;m always excited to
-                collaborate on projects that push the boundaries of what&apos;s
-                possible.
+                When I&apos;m not coding, you&apos;ll find me exploring new technologies,
+                contributing to open-source projects, or working on my next entrepreneurial venture.
+                I&apos;m always excited to collaborate on projects that push the boundaries of
+                what&apos;s possible.
               </p>
             </motion.div>
 
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-wrap gap-3 pt-4"
-            >
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-3 pt-4">
               {[
                 "Problem Solving",
                 "Team Leadership",
@@ -198,11 +189,7 @@ const About = () => {
             { number: "10+", label: "Technologies", sublabel: "Mastered" },
             { number: "2", label: "Startups", sublabel: "Founded" },
           ].map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              variants={itemVariants}
-              className="text-center"
-            >
+            <motion.div key={stat.label} variants={itemVariants} className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">
                 {stat.number}
               </div>

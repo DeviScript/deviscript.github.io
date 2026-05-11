@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import dynamic from "next/dynamic";
 import { ThemeProvider } from "@/components/providers/theme-provider";
-import Navigation from "@/components/layout/Navigation";
-import Footer from "@/components/layout/Footer";
+const Navigation = dynamic(() => import("@/components/layout/Navigation"), { ssr: false });
+const Footer = dynamic(() => import("@/components/layout/Footer"), { ssr: false });
 import { Analytics } from "@vercel/analytics/react";
 import { validateEnvVars } from "@/lib/config";
 
@@ -76,11 +77,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
